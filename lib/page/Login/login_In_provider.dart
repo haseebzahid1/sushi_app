@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/signInUser.dart';
 
-class SignInProvider extends ChangeNotifier {
-  bool remember = false;
+class LoginInProvider extends ChangeNotifier {
   UserIn user = UserIn();
 
   void onSaveUsername(String? value) {

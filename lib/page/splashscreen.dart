@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/page/signIn_Page/form/form_page.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/model/pageViewImage_model.dart';
 import 'package:sushi/style/theme.dart';
+
+import 'Login/Login_page.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -68,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
                       GestureDetector(
                         onTap:(){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FormPage()));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginInPage()));
                         },
                           child: const Text("Skip",style: kTextTitle)
                       ),
@@ -95,10 +97,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                       InkWell(
                           onTap:(){
-                            setState(() {
-
-                            });
-                            print("Next");
+                            // if(currentIndex == pageViewImage.length-1){
+                            if(currentIndex+1 == pageViewImage.length){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginInPage()));
+                            }
+                              _pageController.nextPage(
+                                  duration: Duration(milliseconds: 400),
+                                   curve: Curves.easeIn);
                           },
                           child: Text("Next",style: kTextTitle)
                       ),

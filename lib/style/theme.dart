@@ -9,6 +9,7 @@ const Color success = Color(0xff44c93a);
 const Color danger = Color(0xffff4657);
 const Color info = Color(0xff5bc0de);
 const Color warning = Color(0xfffeba06);
+const Color kTextGrayColor = Colors.grey;
 
 const Color bgAppbarBlack = Color(0xff232528);
 const Color bgAppbarWhite = Color(0xffffffff);
@@ -32,3 +33,10 @@ const greenColor = Color.fromRGBO(159, 192, 103, 10);
 const purpleColor = Color.fromRGBO(146, 115, 169, 10);
 const darkBlue = Color.fromRGBO(0, 84, 165, 10);
 const lightBlue = Color.fromRGBO(196, 220, 243, 10);
+
+const Color kbgBlue = Color(0xFF3B66BE);
+const Color kbgWhite = Color(0xffffffff);
+const kTextColor = Color(0xff757575);
+const kPrimaryColor = Color(0xffff7643);
+
+

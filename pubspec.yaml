@@ -79,11 +79,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-#    - family: Avenir
-#      fonts:
-#        - asset: assets/fonts/AvenirLTStd-Black.otf
-#        - asset: assets/fonts/AvenirLTStd-Book.otf
-#        - asset: assets/fonts/AvenirLTStd-Roman.otf
+    - family: Avenir
+      fonts:
+        - asset: assets/fonts/AvenirLTStd-Black.otf
+        - asset: assets/fonts/AvenirLTStd-Book.otf
+        - asset: assets/fonts/AvenirLTStd-Roman.otf
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf

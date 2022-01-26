@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/signIn_Page/form/form_page.dart';
-import 'package:sushi/page/splashscreen.dart';
+import 'package:sushi/page/register/register_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         scaffoldBackgroundColor: Colors.white,
         canvasColor: Colors.white,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
             button: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 18)),
-        iconTheme: IconThemeData(color: Colors.black),
-        appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const SplashScreen(),
+      home: const RegisterPage(),
     );
   }
 }
