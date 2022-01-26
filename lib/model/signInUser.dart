@@ -1,8 +1,8 @@
-class SignUpUser{
+class UserIn{
   String? email;
   String? password;
 
-  SignUpUser({
+  UserIn({
     this.email,
     this.password
   });

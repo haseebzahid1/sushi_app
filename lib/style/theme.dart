@@ -20,10 +20,15 @@ const Color bgButtonBlack = Color(0xFF17181A);
 const Color bgButtonBlue = Color(0xFF3B66BE);
 const Color bgButtonWhite = Color(0xffffffff);
 
-const Color black = Color(0xff000000);
-const Color white = Color(0xffffffff);
-const Color blue = Color(0xff0D47A1);
-const Color grey = Color(0xffbdbdbd);
+
 const Color lineWhite = Color(0xffececec);
 const Color lineGrey = Color(0xffbdbdbd);
 const Color lineTextGrey = Color(0xff9E9E9E);
+
+
+
+const blueColor =  Color.fromRGBO(87, 150, 210, 10);
+const greenColor = Color.fromRGBO(159, 192, 103, 10);
+const purpleColor = Color.fromRGBO(146, 115, 169, 10);
+const darkBlue = Color.fromRGBO(0, 84, 165, 10);
+const lightBlue = Color.fromRGBO(196, 220, 243, 10);
