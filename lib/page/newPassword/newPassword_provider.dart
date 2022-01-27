@@ -6,6 +6,7 @@ class NewPasswordProvider extends ChangeNotifier{
 
   NewPasswordModel newPassword = NewPasswordModel();
 
+  String? confirmPassword = "";
 
   void onSavedPassword  (String? value) {
     newPassword.password = value ?? "";
@@ -13,14 +14,14 @@ class NewPasswordProvider extends ChangeNotifier{
   }
 
   void onSaveConfirmPassword(String? value){
-    newPassword.confirmPassword = value ?? "";
+    confirmPassword = value ?? "";
   }
 
   void onChancedPassword  (String value) {
     newPassword.password = value;
   }
   void onChangedConfirmPassword  (String value) {
-    newPassword.confirmPassword = value;
+    confirmPassword = value;
   }
 
 
@@ -39,7 +40,7 @@ class NewPasswordProvider extends ChangeNotifier{
   }
 
   String? validateConfirmPassword(String? value){
-    newPassword.confirmPassword = value ?? "";
+    confirmPassword = value ?? "";
     if(value==null  || value.isEmpty){
       return "Confirm password is required";
     }
@@ -47,7 +48,7 @@ class NewPasswordProvider extends ChangeNotifier{
       return "password must 3 charactor or long";
     }else if(value.length>16) {
       return "Password length must be 16 character or less";
-    } else if(newPassword.password != newPassword.confirmPassword){
+    } else if(newPassword.password != confirmPassword){
       return "password not match";
     }
 
@@ -55,7 +56,7 @@ class NewPasswordProvider extends ChangeNotifier{
   }
 
   void onSubmit(){
-    print("${newPassword.password}, ${newPassword.confirmPassword}");
+    print("${newPassword.password}, ${confirmPassword}");
   }
 /// Form provider End
 }

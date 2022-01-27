@@ -59,7 +59,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                           const Text("Please Enter a new password\n and confirm the password",style: textHeading,textAlign: TextAlign.center,),
                           SizedBox(height: size.height* 0.04,),
                           InputFieldWidget(
-                            initialValue: newPasswordProvider.newPassword.password ?? "1234567",
+                            initialValue: "1234567",
                             // hintText: "1234567",
                             labelText: "Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
@@ -69,7 +69,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                           ),
                           SizedBox(height: size.height* 0.03,),
                           InputFieldWidget(
-                            initialValue: newPasswordProvider.newPassword.confirmPassword ?? "1234567",
+                            initialValue: "1234567",
                             // hintText: "1234567",
                             labelText: "Confirm Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),

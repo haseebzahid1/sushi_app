@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/register/register_page.dart';
+import 'package:sushi/page/DetailPage/detail_page.dart';
+import 'package:sushi/page/Login/Login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const RegisterPage(),
+      home: const DetailPage(),
+      // home: const LoginInPage(),
     );
   }
 }

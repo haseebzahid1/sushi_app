@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sushi/page/DetailPage/detail_page.dart';
+import 'package:sushi/page/forgot/forgot_page.dart';
 import 'package:sushi/page/register/register_page.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
@@ -66,8 +68,7 @@ class LoginInPageWidget extends StatelessWidget {
                     child: Column(
                       children: [
                         InputFieldWidget(
-                          initialValue: loginInProvider.user.email??"Email@gmail.com",
-                          // hintText: "Email@gmail.com",
+                          initialValue: "Email@gmail.com",
                           labelText: "Email@gmail.com",
                           textInputType: TextInputType.emailAddress,
                           validate:loginInProvider.validateUsername,
@@ -77,8 +78,7 @@ class LoginInPageWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 17,),
                         InputFieldWidget(
-                          initialValue: loginInProvider.user.password ?? "1234567",
-                          // hintText: "1234567",
+                          initialValue: "1234567",
                           labelText: "Password",
                           prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
                           validate:loginInProvider.validatePassword,
@@ -88,6 +88,7 @@ class LoginInPageWidget extends StatelessWidget {
                         SizedBox(height: size.height* 0.04,),
                         FormButton(
                           onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
                             loginInProvider.onSubmit();
                             if(_formKey.currentState!.validate()){
                               _formKey.currentState!.save();
@@ -114,8 +115,11 @@ class LoginInPageWidget extends StatelessWidget {
                       Container(width: size.width,),
                       SizedBox(height: size.height* 0.03,),
                       GestureDetector(
-                          onTap: (){print("forgot password?");},
-                          child: const Text("ForGot Password ?",style: kPasswordTitle)
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPassword()));
+                            print("forgot password?");
+                            },
+                          child: const Text("Forgot Password ?",style: kPasswordTitle)
                       ),
                       SizedBox(height: size.height* 0.01,),
                       const Text("or",style: kOrTitle),

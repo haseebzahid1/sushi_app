@@ -56,7 +56,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                         children: [
                           SizedBox(height: size.height* 0.04,),
                           InputFieldWidget(
-                            initialValue: forgotPasswordProvider.forgotPassword.email??"Email@gmail.com",
+                            initialValue: "Email@gmail.com",
                             // hintText: "Email@gmail.com",
                             labelText: "Email@gmail.com",
                             textInputType: TextInputType.emailAddress,

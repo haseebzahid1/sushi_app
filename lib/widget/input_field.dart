@@ -35,14 +35,16 @@ class InputFieldWidget extends StatefulWidget {
 
 class _InputFieldWidgetState extends State<InputFieldWidget> {
 
-final double size = 1.5;
+final double size = 1.3;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       obscureText: widget.isPassword ?? true,
       keyboardType: widget.textInputType ?? TextInputType.text,
       initialValue:widget.initialValue,
       decoration:  InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 17),
         hintText:widget.hintText,
         labelText: widget.labelText,
         prefixIcon: widget.prefixIcon,
