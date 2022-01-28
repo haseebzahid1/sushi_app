@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Sumo Sushi',
       theme: ThemeData(
+
         fontFamily: "Avenir",
         primarySwatch: Colors.blue,
         splashColor: Colors.transparent,
