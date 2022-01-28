@@ -22,6 +22,8 @@ const detailPositionHeading =  TextStyle(fontWeight: FontWeight.w700,fontFamily:
 const detailPositionSubHeading =  TextStyle(fontWeight: FontWeight.w500,fontFamily: "Avenger",fontSize: 16,color: Colors.white);
 const detailClubHeading =  TextStyle(fontSize: 19,fontFamily: "Avenger",fontWeight: FontWeight.bold);
 const headingDrawerText =  TextStyle(fontSize: 16,fontFamily: "Avenger",fontWeight: FontWeight.w600);
+const modelHeading =  TextStyle(color: Colors.black,fontFamily: "Avenger",fontWeight: FontWeight.bold,fontSize: 20);
+const modelSubHeading =  TextStyle(color: Colors.grey,fontFamily: "Avenger",fontWeight: FontWeight.w600,fontSize: 18);
 
 
 
