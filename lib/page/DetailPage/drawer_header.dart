@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/page/newPassword/newPassword.dart';
+import 'package:sushi/page/order_history/order_history.dart';
 import 'package:sushi/style/constant.dart';
 
 class MyDrawerList extends StatelessWidget {
@@ -24,7 +25,7 @@ class MyDrawerList extends StatelessWidget {
         ListTile(
           leading: Image.asset("assets/icons/ic_history.png"),
           title:const Text("Order History",style: headingDrawerText,),
-          onTap: (){Navigator.of(context).pop();},
+          onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderHistory()));},
         ),  ListTile(
           leading: Image.asset("assets/icons/ic_notification.png"),
           title:const Text("Notification",style: headingDrawerText,),
@@ -32,7 +33,7 @@ class MyDrawerList extends StatelessWidget {
         ),
         ListTile(
           leading: Image.asset("assets/icons/ic_privacy.png"),
-          title:const Text("Privacy Pllicy",style: headingDrawerText,),
+          title:const Text("Privacy Policy",style: headingDrawerText,),
           onTap: (){Navigator.of(context).pop();},
         ),
         ListTile(

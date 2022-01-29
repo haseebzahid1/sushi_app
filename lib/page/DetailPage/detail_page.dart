@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
+import 'package:sushi/page/order_detail/order_detail.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/bottom_GridContainer_widget.dart';
 import 'package:sushi/widget/detailRowView_widget.dart';
 import 'package:sushi/widget/gridContainer_widget.dart';
+import 'detail_widget/bottom_model_sheet.dart';
 import 'drawer_header.dart';
 
 class DetailPage extends StatefulWidget {
-   DetailPage({Key? key}) : super(key: key);
+ const DetailPage({Key? key}) : super(key: key);
 
 
   @override
@@ -17,13 +19,13 @@ class DetailPage extends StatefulWidget {
 }
 class _DetailPageState extends State<DetailPage> {
   @override
-  int _currentIndex = -0;
-  String _selectedItem = '';
+
   Widget build(BuildContext context) {
     final Size size  = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
+        iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
+        // backgroundColor: Colors.lightBlue,
         elevation: 0,
         actions:  [
           GestureDetector(
@@ -63,6 +65,9 @@ class _DetailPageState extends State<DetailPage> {
                               subTitle: 'in one click',
                               color:Colors.blue.withOpacity(0.9),
                               image: "assets/icons/arrowCircle.png",
+                              onTap: (){
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderDetailPage()));
+                              },
                             ),
                           ],
                         ),
@@ -83,7 +88,7 @@ class _DetailPageState extends State<DetailPage> {
                                   ),
                                   isScrollControlled: true,
                                   context: context, builder: (BuildContext context){
-                                return  buildSheet_2();
+                                return  DetailBottomSheet();
                               }
                               )),
                           ],
@@ -283,116 +288,4 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-
-
-  Widget buildSheet_2()=> makeDismissible(
-
-      child:DraggableScrollableSheet(
-        initialChildSize: 0.4,
-        minChildSize: 0.4,
-        maxChildSize: 1,
-        builder: (BuildContext context, controller) => Container(
-          color: Colors.white,
-          child: ListView(
-            controller: controller,
-            children: [
-              Container(
-              color: Color(0xff737373),
-          // height: 180,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).canvasColor,
-              // borderRadius: BorderRadius.only(topRight: Radius.circular(40),topLeft: Radius.circular(40)),
-            ),
-            // child: _buildBottomNavigationMenu(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10,),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Text("Order Type",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,fontFamily: "Avenger"),),
-                  ),
-                  SizedBox(height: 10,),
-                  ListTile(
-                    leading: Image.asset("assets/icons/shopping-bag.png",width: MediaQuery.of(context).size.width *0.11 ,),
-                    title: Text("Pick UP",style: modelHeading),
-                    subtitle: Text("Well prepare and pack your ",style: modelSubHeading,),
-                    // onTap: ()=> _selectItem('Cooling', 1),
-                    trailing: _currentIndex == 1 ? Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.done,color: Colors.white,size: 15,),
-                      ),
-                    ) : Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Image.asset("assets/icons/shoe-shop.png",width: MediaQuery.of(context).size.width *0.11 ,),
-                    title: const Text("Dine in",style: modelHeading),
-                    subtitle: Text("Well prepare and pack your ",style: modelSubHeading),
-                    onTap: ()=> _selectItem('People', 2),
-                    trailing: _currentIndex == 2 ? Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.done,color: Colors.white,size: 15,),
-                      ),
-                    ) : Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
-                      ),
-                    ),
-
-                  ),
-                  ListTile(
-                    leading: Image.asset("assets/icons/delivery-man.png",width: MediaQuery.of(context).size.width *0.12 ,),
-                    title: const Text("Stats",style: modelHeading,),
-                    subtitle: const Text("Well prepare and pack your ",style: modelSubHeading),
-                    onTap: ()=> _selectItem('Stats', 3),
-                    trailing: _currentIndex == 3 ? Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.done,color: Colors.white,size: 15,),
-                      ),
-                    ) : Container(
-                      width: 20, height: 20,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
-                      ),
-                    ),
-                  ),
-                ]
-            ),
-          ),
-        ),
-            ],
-          ),
-        ),
-      ));
-  _selectItem(String name, int index){
-    Navigator.pop(context);
-    setState(() {
-      _selectedItem = name;
-      _currentIndex = index;
-    });
-
-  }
-  Widget makeDismissible({required Widget child}){
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: (){
-        return Navigator.of(context).pop();
-
-      },
-      child: GestureDetector(onTap: (){},child: child,),
-    );
-  }
 }

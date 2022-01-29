@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/DetailPage/detail_page.dart';
 import 'package:sushi/page/Login/Login_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        scaffoldBackgroundColor: Colors.white,
+        // scaffoldBackgroundColor: Colors.white,
         canvasColor: Colors.white,
         textTheme: const TextTheme(
             button: TextStyle(
@@ -39,8 +38,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  DetailPage(),
-      // home: const LoginInPage(),
+      home:  const LoginInPage(),
+      // home:  HomePage(),
     );
   }
 }

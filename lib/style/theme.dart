@@ -40,4 +40,4 @@ const Color kbgWhite = Color(0xffffffff);
 const kTextColor = Color(0xff757575);
 const kPrimaryColor = Color(0xffff7643);
 
-
+const kCustomButton = Color(0xff3865b7);
