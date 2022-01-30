@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/map_screen.dart';
 import 'package:sushi/model/custom_contactModel.dart';
 import 'package:sushi/style/constant.dart';
 
-import 'mapPage.dart';
 
 class DetailBottomSheet extends StatefulWidget {
 const  DetailBottomSheet({Key? key}) : super(key: key);
@@ -61,12 +61,12 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                             decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
                             ),
                           ),
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MapPage()));
+                          onTap: (){
                             setState(() {
                               contactItem.isSelected = !contactItem.isSelected;
-                            });
+                              });
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+
                           },
                         );
                       }),
