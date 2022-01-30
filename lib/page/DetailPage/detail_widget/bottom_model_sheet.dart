@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sushi/model/custom_contactModel.dart';
 import 'package:sushi/style/constant.dart';
 
+import 'mapPage.dart';
+
 class DetailBottomSheet extends StatefulWidget {
 const  DetailBottomSheet({Key? key}) : super(key: key);
 
@@ -60,6 +62,8 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                             ),
                           ),
                           onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const MapPage()));
                             setState(() {
                               contactItem.isSelected = !contactItem.isSelected;
                             });

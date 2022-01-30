@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
 import 'package:sushi/page/order_detail/order_detail.dart';
+import 'package:sushi/page/order_history/order_history.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/bottom_GridContainer_widget.dart';
@@ -26,7 +27,7 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
         // backgroundColor: Colors.lightBlue,
-        elevation: 0,
+        // elevation: 0,
         actions:  [
           GestureDetector(
             onTap: (){
@@ -66,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                               color:Colors.blue.withOpacity(0.9),
                               image: "assets/icons/arrowCircle.png",
                               onTap: (){
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderDetailPage()));
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderHistory()));
                               },
                             ),
                           ],
@@ -91,6 +92,7 @@ class _DetailPageState extends State<DetailPage> {
                                 return  DetailBottomSheet();
                               }
                               )),
+
                           ],
                         ),
                     ),
@@ -133,7 +135,7 @@ class _DetailPageState extends State<DetailPage> {
                       left:size.width * 0.33,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children:  [
                           Text("Get Kanji Coins",style: detailPositionHeading,textAlign: TextAlign.center,),
                           SizedBox(height: 3,),
                           Text("For dine-in Orders",style: detailPositionSubHeading,textAlign: TextAlign.center,),

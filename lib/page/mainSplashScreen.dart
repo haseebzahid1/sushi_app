@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DetailPage/detail_page.dart';
+import 'package:sushi/page/splashscreen.dart';
 
 class MainSplashScreen extends StatefulWidget {
   const MainSplashScreen({Key? key}) : super(key: key);
@@ -11,11 +11,11 @@ class MainSplashScreen extends StatefulWidget {
 class _MainSplashScreenState extends State<MainSplashScreen> {
   void initState(){
     super.initState();
-    _navigatetohome();
+    _navigatetToHome();
   }
-  _navigatetohome() async {
-    await Future.delayed(Duration(milliseconds: 2000),(){});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>DetailPage()));
+  _navigatetToHome() async {
+    await Future.delayed(Duration(milliseconds: 2500),(){});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SplashScreen()));
   }
   @override
   Widget build(BuildContext context) {

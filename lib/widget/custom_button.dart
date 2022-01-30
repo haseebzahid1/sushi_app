@@ -5,6 +5,7 @@ class CustomButton extends StatefulWidget {
   void Function()? onTap;
   final double? size;
   final double width;
+   double? height;
   final Color color;
   final Color bgColor;
   EdgeInsetsGeometry? padding;
@@ -16,6 +17,7 @@ class CustomButton extends StatefulWidget {
     required this.color,
     required this.bgColor,
     this.padding,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class _CustomButtonState extends State<CustomButton> {
       child: Container(
         padding:widget.padding??EdgeInsets.symmetric(vertical: 11),
         width: widget.width,
+        height: widget.height,
         decoration: BoxDecoration(
           color: widget.bgColor,
           borderRadius: BorderRadius.circular(30),

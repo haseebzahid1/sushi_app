@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/model/categories_model.dart';
 import 'package:sushi/style/theme.dart';
 
 const kOrderAppVBarTitle = TextStyle(color: Colors.black,fontFamily: "Avenger",fontWeight: FontWeight.w500);
@@ -32,6 +33,11 @@ const orderDetailSubHeading =  TextStyle(fontSize: 18,fontWeight: FontWeight.w70
 
 const privacyHeadingStyle = TextStyle(fontSize: 18.5,fontWeight: FontWeight.bold,fontFamily: 'Avenger',color: Colors.black);
 const privacyHeadingStyle_2 = TextStyle(fontSize: 15,fontWeight: FontWeight.w500,fontFamily: 'Avenger',color: Colors.blue,decoration: TextDecoration.underline,decorationThickness: 1.5);
+
+const categoriesTitle = TextStyle(fontSize: 19,color: Colors.black,fontFamily: "Avenger",fontWeight: FontWeight.bold);
+const categoriesCoinText = TextStyle(color: Colors.black,fontSize:17,fontWeight: FontWeight.bold);
+const categoriesListSubTitle = TextStyle(color: Colors.grey,fontSize: 17,fontWeight: FontWeight.w500,fontFamily:"Avenger" );
+const categoriesDetailViewTitle = TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.grey);
 
 
 
