@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sushi/page/DetailPage/detail_page.dart';
+import 'package:sushi/page/categories/categories.dart';
+import 'package:sushi/page/categories/categories_layout/categories_listview.dart';
+import 'package:sushi/page/categories/categories_layout/layout_TopButtonRow.dart';
 import 'package:sushi/page/mainSplashScreen.dart';
+import 'package:sushi/page/order_detail/order_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +43,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home:  DetailPage(),
+      // home:  CategoriesListView(),
       // home:  MainSplashScreen(),
     );
   }

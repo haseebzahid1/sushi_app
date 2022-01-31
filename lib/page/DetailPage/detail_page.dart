@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
-import 'package:sushi/page/order_detail/order_detail.dart';
 import 'package:sushi/page/order_history/order_history.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
@@ -135,7 +134,7 @@ class _DetailPageState extends State<DetailPage> {
                       left:size.width * 0.33,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
+                        children:  const [
                           Text("Get Kanji Coins",style: detailPositionHeading,textAlign: TextAlign.center,),
                           SizedBox(height: 3,),
                           Text("For dine-in Orders",style: detailPositionSubHeading,textAlign: TextAlign.center,),
@@ -151,7 +150,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 6),
+                      padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                       decoration: BoxDecoration(
                       // color: Colors.red,
                         borderRadius: BorderRadius.circular(5),
@@ -209,7 +208,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           SizedBox(height: size.height * 0.01,),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10,right: 8),
+                            padding: const EdgeInsets.only(left: 0,right: 8),
                             child: Text(productListItem.title,style: detailTextHeading,),
                           ),
                         ],
@@ -236,12 +235,12 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           Container(
                             width: size.width,
-                            height: size.height * 0.19,
+                            height: size.height * 0.2,
                             child: Image.asset(productItem.img,fit: BoxFit.cover,),
                           ),
                           SizedBox(height: size.height * 0.01,),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10,right: 8),
+                            padding: const EdgeInsets.only(left: 0,right: 0),
                             child: Text(productItem.title,style: detailTextHeading,),
                           ),
                         ],

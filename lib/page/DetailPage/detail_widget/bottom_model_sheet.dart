@@ -42,10 +42,10 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                     children: List.generate(contacts.length, (index){
                       ContactModel  contactItem =  contacts[index];
                       return   ListTile(
-                        leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.11 ,),
+                        leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.09 ,),
                         title: Text(contactItem.name,style: modelHeading),
                         subtitle: Text(contactItem.title,style: modelSubHeading,),
-                        trailing: currentIndex ==index
+                        trailing: currentIndex == index
                             ? Container(
                           width: 20, height: 20,
                           decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
@@ -59,10 +59,14 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                           ),
                         ),
                         onTap: (){
+
                           setState(() {
                             currentIndex = index;
                           });
-                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+                          print(currentIndex);
+                          if(currentIndex == 0){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+                          }
                         },
                       );
                     })

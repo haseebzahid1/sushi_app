@@ -19,7 +19,7 @@ class OrderDetailPage extends StatelessWidget {
             child: Icon(Icons.arrow_back),
           ),
           iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
-          title:  const Text("Order Detail",style: kOrderAppVBarTitle,),
+          title:   Text("Order Detail",style: kOrderAppVBarTitle.copyWith(fontSize: 19),),
           backgroundColor: Colors.white,
           // elevation: 0,
 
@@ -53,7 +53,7 @@ class OrderDetailPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                        const Text("Order Type",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,fontFamily: "Avenger")),
+                        const Text("Order Type",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold,fontFamily: "Avenger")),
                           SizedBox(height: size.height * 0.02,),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,13 +87,13 @@ class OrderDetailPage extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Address",style: orderDetailSubHeading.copyWith(fontSize: 21,fontWeight: FontWeight.bold),),
+                              Text("Address",style: orderDetailSubHeading.copyWith(fontSize: 18,fontWeight: FontWeight.bold),),
                               SizedBox(height: size.height * 0.02,),
                               Text("Cash",style: orderDetailSubHeading.copyWith(color: Colors.grey)),
                               SizedBox(height: size.height * 0.01,),
                               Row(
                                 children:  [
-                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 22),),
+                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 17),),
                                   Spacer(),
                                   Text("${orderDetailItem.totalPrice}",style: orderDetailSubHeading,),
                                 ],

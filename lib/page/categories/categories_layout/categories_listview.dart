@@ -76,11 +76,11 @@ class CategoriesListView extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(categoriesListItem.title,style: categoriesTitle.copyWith(fontSize: 21)),
+                                  Text(categoriesListItem.title,style: categoriesTitle.copyWith(fontSize: 19)),
                                   SizedBox(height: size.height * 0.01,),
                                    Text(categoriesListItem.subTitle,style: categoriesListSubTitle,),
                                   SizedBox(height: size.height * 0.01,),
-                                  Text("${categoriesListItem.total} DH",style: categoriesTitle.copyWith(fontSize: 19)),
+                                  Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 16,fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ),

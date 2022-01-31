@@ -31,7 +31,7 @@ class BottomGridContainer extends StatelessWidget {
           children: [
             Positioned(
               right: 10,
-              bottom: 0,
+              bottom: 4,
               child: Container(
                 width: 80,
                 height: 80,

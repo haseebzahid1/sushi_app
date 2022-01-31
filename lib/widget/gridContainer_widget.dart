@@ -35,8 +35,8 @@ class GridContainer extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Positioned(
-                right: 0,
-                bottom: -10,
+                right: 10,
+                bottom: 3,
                 child: Container(
                   width: 80,
                   height: 80,
@@ -52,7 +52,7 @@ class GridContainer extends StatelessWidget {
                     children: [
                       Image.asset(image,width: 50,height: 50,),
                       Text(title,style: detailPositionHeading.copyWith(fontSize: 21),textAlign: TextAlign.center,),
-                      Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 18),textAlign: TextAlign.center,),
+                      Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 16),textAlign: TextAlign.center,),
                     ],
                   )
               ),
