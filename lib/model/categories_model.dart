@@ -14,11 +14,11 @@ class Categories {
 }
 
 List<Categories> categories = [
-  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
-  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
-  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
-  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
-  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
+  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-3 hours in advance", img: "assets/icons/image.png", total: 249.00,),
+  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-5 hours in advance", img: "assets/icons/image.png", total: 249.00,),
+  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-6 hours in advance", img: "assets/icons/image.png", total: 249.00,),
+  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-7 hours in advance", img: "assets/icons/image.png", total: 249.00,),
+  Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-8 hours in advance", img: "assets/icons/image.png", total: 249.00,),
   Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
   Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),
   Categories(name: "Rewards", title: "Wagyu Steak Roll", subTitle: "Order at least 3-4 hours in advance", img: "assets/icons/image.png", total: 249.00,),

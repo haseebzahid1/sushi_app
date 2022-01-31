@@ -19,7 +19,6 @@ class LayoutTopButtonRow extends StatelessWidget {
               GestureDetector(
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesListView()));
-
                   },
                   child: Icon(Icons.filter_1)
               ),

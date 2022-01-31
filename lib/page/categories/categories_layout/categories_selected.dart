@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sushi/page/categories/provider.dart';
+import 'package:sushi/model/categories_model.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/custom_button.dart';
 
 
-class CategoriesDetailView extends StatelessWidget {
-  const CategoriesDetailView({Key? key}) : super(key: key);
+class CategoriesDetailView extends StatefulWidget {
+  final Categories detailViewCategories;
+  const CategoriesDetailView({Key? key, required this.detailViewCategories,}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SelectCountProvider>(
-      create: (context) =>SelectCountProvider(),
-      child: const CategoriesDetailViewWidget(),
-    );
-  }
+  State<CategoriesDetailView> createState() => _CategoriesDetailViewState();
 }
 
-class CategoriesDetailViewWidget extends StatelessWidget {
- const CategoriesDetailViewWidget({Key? key}) : super(key: key);
-
+class _CategoriesDetailViewState extends State<CategoriesDetailView> {
   @override
+  int count = 0;
+  double totalPrice = 245.00;
+
+  void increment(){
+    setState(() {
+      count--;
+    });
+  }
+
+  void  decrement(){
+    setState(() {
+      count++;
+    });
+  }
+
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final selectCountProvider = Provider.of<SelectCountProvider>(context);
     return Scaffold(
       body: Container(
         width: size.width,
@@ -35,7 +42,8 @@ class CategoriesDetailViewWidget extends StatelessWidget {
             Container(
               width: size.width,
               height: size.height * 0.7,
-              child: Image.asset("assets/icons/image.png",fit: BoxFit.cover,),
+              // child: Image.asset("assets/icons/image.png",fit: BoxFit.cover,),
+              child: Image.asset(widget.detailViewCategories.img,fit: BoxFit.cover,),
             ),
             Positioned(
               bottom: 0,
@@ -55,9 +63,9 @@ class CategoriesDetailViewWidget extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text("Wagyu Steak Roll",style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
+                         Text(widget.detailViewCategories.title,style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
                         SizedBox(height: size.height * 0.01,),
-                        const Text("Order at least 3-4 hours in advance",style:  categoriesDetailViewTitle),
+                         Text(widget.detailViewCategories.subTitle,style:  categoriesDetailViewTitle),
                         SizedBox(height: size.height * 0.01,),
                         Row(
                           children: [
@@ -75,14 +83,14 @@ class CategoriesDetailViewWidget extends StatelessWidget {
                                   countButton(
                                       size: size,
                                       text: '-',
-                                      fontSize: 24,onTab: selectCountProvider.increment
+                                      fontSize: 24,onTab:increment
                                       ),
-                                  Text("${selectCountProvider.count}",style: TextStyle(fontSize: 17,color: kCustomButton,fontWeight: FontWeight.bold)),
+                                  Text("${count}",style: TextStyle(fontSize: 17,color: kCustomButton,fontWeight: FontWeight.bold)),
                                   countButton(
                                       size: size,
                                       text: '+',
                                       fontSize:19,
-                                      onTab:selectCountProvider.decrement
+                                      onTab:decrement
                                   ),
                                 ],
                               ),
@@ -92,7 +100,7 @@ class CategoriesDetailViewWidget extends StatelessWidget {
                               onTap: (){
                                 print("total");
                               },
-                                child: Text("249.0",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
+                                child: Text("${totalPrice}",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
                             ),
                           ],
                         ),

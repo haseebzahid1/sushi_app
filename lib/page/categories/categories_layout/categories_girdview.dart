@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sushi/model/categories_model.dart';
 import 'package:sushi/page/DetailPage/drawer_header.dart';
 import 'package:sushi/style/constant.dart';
+import 'categories_listview.dart';
+import 'categories_selected.dart';
 import 'layout_TopButtonRow.dart';
 
 class CategoriesGridView extends StatelessWidget {
@@ -59,7 +61,9 @@ class CategoriesGridView extends StatelessWidget {
                 Categories categoriesItem= categories[index];
                 return GestureDetector(
                   onTap: (){
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CategoriesListView()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CategoriesDetailView(
+                      detailViewCategories: categoriesItem,
+                    )));
                   },
                   child: Container(
                     decoration: BoxDecoration(

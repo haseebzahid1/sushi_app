@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sushi/page/DetailPage/detail_page.dart';
-import 'package:sushi/page/categories/categories.dart';
-import 'package:sushi/page/categories/categories_layout/categories_girdview.dart';
-import 'package:sushi/page/categories/categories_layout/categories_selected.dart';
 import 'package:sushi/page/mainSplashScreen.dart';
-
-import 'maap.dart';
-import 'map_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,8 +39,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home:  DetailPage(),
-      // home:   CategoriesDetailView(),
-      // home:   CategoriesDetailView(),
+      // home:  MainSplashScreen(),
     );
   }
 }

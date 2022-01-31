@@ -5,13 +5,13 @@ import 'package:sushi/style/constant.dart';
 
 
 class DetailBottomSheet extends StatefulWidget {
-const  DetailBottomSheet({Key? key}) : super(key: key);
+  DetailBottomSheet({Key? key}) : super(key: key);
 
   @override
   _DetailBottomSheetState createState() => _DetailBottomSheetState();
 }
-
 class _DetailBottomSheetState extends State<DetailBottomSheet> {
+ int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -38,38 +38,36 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                 ),
                 const SizedBox(height: 10,),
                 Expanded(
-                  child: ListView.builder(
-                    // controller: controller,
-                      itemCount: contacts.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        ContactModel contactItem = contacts[index];
-                        // return item
-                        return ListTile(
-                          leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.11 ,),
-                          title: Text(contactItem.name,style: modelHeading),
-                          subtitle: Text(contactItem.title,style: modelSubHeading,),
-                          trailing: contactItem.isSelected
-                              ? Container(
-                            width: 20, height: 20,
-                            decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
-                            ),
-                            child: const Center(
-                              child: Icon(Icons.done,color: Colors.white,size: 15,),
-                            ),
-                          ) : Container(
-                            width: 20, height: 20,
-                            decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
-                            ),
+                  child: Column(
+                    children: List.generate(contacts.length, (index){
+                      ContactModel  contactItem =  contacts[index];
+                      return   ListTile(
+                        leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.11 ,),
+                        title: Text(contactItem.name,style: modelHeading),
+                        subtitle: Text(contactItem.title,style: modelSubHeading,),
+                        trailing: currentIndex ==index
+                            ? Container(
+                          width: 20, height: 20,
+                          decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
                           ),
-                          onTap: (){
-                            setState(() {
-                              contactItem.isSelected = !contactItem.isSelected;
-                              });
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+                          child: const Center(
+                            child: Icon(Icons.done,color: Colors.white,size: 15,),
+                          ),
+                        ) : Container(
+                          width: 20, height: 20,
+                          decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
+                          ),
+                        ),
+                        onTap: (){
+                          setState(() {
+                            currentIndex = index;
+                          });
+                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+                        },
+                      );
+                    })
 
-                          },
-                        );
-                      }),
+                  )
                 ),
               ],
             ),
@@ -79,3 +77,36 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
   }
 
 }
+
+// Expanded(
+// child: ListView.builder(
+// itemCount: contacts.length,
+// itemBuilder: (context, index){
+// ContactModel  contactItem =  contacts[index];
+// return ListTile(
+// leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.11 ,),
+// title: Text(contactItem.name,style: modelHeading),
+// subtitle: Text(contactItem.title,style: modelSubHeading,),
+// trailing: currentIndex ==index
+// ? Container(
+// width: 20, height: 20,
+// decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
+// ),
+// child: const Center(
+// child: Icon(Icons.done,color: Colors.white,size: 15,),
+// ),
+// ) : Container(
+// width: 20, height: 20,
+// decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
+// ),
+// ),
+// onTap: (){
+// setState(() {
+// currentIndex = index;
+// });
+// // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+//
+// },
+// );
+// },)
+// ),

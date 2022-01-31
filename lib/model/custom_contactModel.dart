@@ -9,7 +9,6 @@ class ContactModel{
     required this.isSelected,
     required this.img,
   });
-
 }
 
 List<ContactModel> contacts = [
