@@ -70,7 +70,7 @@ class RegisterPageWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           InputFieldWidget(
-                            initialValue: registerProvider.registerModel.email??"Email@gmail.com",
+                            initialValue:"Email@gmail.com",
                             // hintText: "Email@gmail.com",
                             labelText: "Email@gmail.com",
                             textInputType: TextInputType.emailAddress,
@@ -81,7 +81,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue: registerProvider.registerModel.name??"John",
+                            initialValue: "John",
                             // hintText: "John",
                             labelText: "john",
                             validate:registerProvider.validateUserName,
@@ -91,7 +91,8 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue: registerProvider.registerModel.phoneNumber??"00/00/0000",
+                            textInputType: TextInputType.number,
+                            initialValue: "00/00/0000",
                             // hintText: "John",
                             labelText: "Date Of Birth",
                             validate:registerProvider.validateDateOfBirth,
@@ -101,7 +102,8 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue: registerProvider.registerModel.phoneNumber??"0312-1234567",
+                            textInputType: TextInputType.number,
+                            initialValue: "0312-1234567",
                             // hintText: "John",
                             labelText: "Phone Number",
                             validate:registerProvider.validatePhoneNumber,
@@ -111,7 +113,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue: registerProvider.registerModel.password ?? "1234567",
+                            initialValue:"1234567",
                             // hintText: "1234567",
                             labelText: "Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
@@ -132,11 +134,11 @@ class RegisterPageWidget extends StatelessWidget {
                               }
                             },
                             textButton: "Sign Up",
-                            width: size.width,
+                            width: size.width * 0.8,
                             color: secondary,
                             bgcolor: bgButtonBlue,
                             size: 22,
-                            padding:EdgeInsets.symmetric(vertical: 13),
+                            padding:EdgeInsets.symmetric(vertical: 14),
                           ),
                         ],
                       ),
@@ -145,6 +147,8 @@ class RegisterPageWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 26),
                     child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(width: size.width,),
                         SizedBox(height: size.height* 0.03,),
@@ -152,6 +156,7 @@ class RegisterPageWidget extends StatelessWidget {
                         SizedBox(height: size.height* 0.01,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SocialIcon(image: 'assets/icons/facebook.png',onTap: (){print("facebook");},),
                             SocialIcon(image: 'assets/icons/google.png',onTap: (){print("google");},),
@@ -162,9 +167,9 @@ class RegisterPageWidget extends StatelessWidget {
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             children: [
-                              TextSpan(text: 'New User ',style: privacyHeadingStyle.copyWith(color: Colors.black)),
-                              TextSpan(text: 'Login Here \n', style: privacyHeadingStyle_2,recognizer: registerHere,),
-                              TextSpan(text: 'By singning up, your agree to our',style: privacyHeadingStyle.copyWith(height: 1.5,color: Colors.black)),
+                              TextSpan(text: 'New User ',style: privacyHeadingStyle),
+                              TextSpan(text: 'Login Here ', style: privacyHeadingStyle_2,recognizer: registerHere,),
+                              TextSpan(text: 'By singning up, your agree to our',style: privacyHeadingStyle.copyWith(height: 1.5,)),
                               TextSpan(text: 'Terms of Use',style: privacyHeadingStyle_2.copyWith(height: 1.5,),recognizer: termsOfUse),
                             ],
                           ),

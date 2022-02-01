@@ -118,7 +118,7 @@ class LoginInPageWidget extends StatelessWidget {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPassword()));
                             print("forgot password?");
                             },
-                          child: const Text("Forgot Password ?",style: kPasswordTitle)
+                          child:  Text("Forgot Password ?",style: forgtopasswordStyle)
                       ),
                       SizedBox(height: size.height* 0.01,),
                       const Text("or",style: kOrTitle),

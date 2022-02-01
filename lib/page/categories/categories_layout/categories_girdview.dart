@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/categories_model.dart';
-import 'package:sushi/page/DetailPage/drawer_header.dart';
 import 'package:sushi/style/constant.dart';
-import 'categories_listview.dart';
 import 'categories_selected.dart';
-import 'layout_TopButtonRow.dart';
+
 
 class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({Key? key}) : super(key: key);
@@ -13,39 +11,8 @@ class CategoriesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
-        actions:  [
-          GestureDetector(
-            onTap: (){
-              print("Categories");
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("33",style: categoriesCoinText),
-                SizedBox(width: size.width * 0.01,),
-                Container(
-                  width: size.width * 0.06,
-                  child: const CircleAvatar(
-                    backgroundImage: AssetImage("assets/icons/coin.png",),
-                    radius: 50,
-                  ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(width: 10,)
-        ],
-      ),
-      drawer:const Drawer(
-        // backgroundColor: Colors.transparent,
-        child: MyDrawerList(),
-      ),
       body: Column(
         children: [
-          SizedBox(height: size.height * 0.02,),
-          LayoutTopButtonRow(),
           Expanded(
             child: GridView.builder(
               scrollDirection: Axis.vertical,

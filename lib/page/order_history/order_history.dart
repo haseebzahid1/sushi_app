@@ -59,7 +59,7 @@ class OrderHistory extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 4),
+                              padding: const EdgeInsets.symmetric(horizontal: 2,vertical: 2),
                               decoration: BoxDecoration(
                                 // color: Colors.red,
                                   borderRadius: BorderRadius.circular(5),
@@ -71,7 +71,7 @@ class OrderHistory extends StatelessWidget {
                               child: Column(
                                 children:  [
                                    Text("${orderProductItem.orderNumber}",style: detailZeroText),
-                                  Text("Coins",style: detailTextHeading_2.copyWith(fontSize: 15),),
+                                  Text("Coins",style: detailTextHeading_2.copyWith(fontSize: 14),),
                                 ],
                               ),
                             ),
@@ -82,13 +82,13 @@ class OrderHistory extends StatelessWidget {
                         const SizedBox(height: 2,),
                         Container(
                             width: size.width,
-                            height: size.height * 0.22,
+                            height: size.height * 0.18,
                             child: Image.asset(orderProductItem.img,fit: BoxFit.cover,)
                         ),
                         Row(
                           children: [
                             Expanded(
-                              flex:5,
+                              flex:6,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children:  [
@@ -101,13 +101,13 @@ class OrderHistory extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 4),
+                                padding: const EdgeInsets.symmetric(horizontal: 0,vertical: 2),
                                 decoration: BoxDecoration(
                                   // color: Colors.red,
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
                                       width: 1,
-                                      color: Colors.lightBlue,
+                                      color: darkBlue,
                                     )
                                 ),
                                 child: Column(

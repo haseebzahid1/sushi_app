@@ -63,7 +63,7 @@ class _DetailPageState extends State<DetailPage> {
                             GridContainer(
                               title: 'Repeat Order',
                               subTitle: 'in one click',
-                              color:Colors.blue.withOpacity(0.9),
+                              color:blueColor,
                               image: "assets/icons/arrowCircle.png",
                               onTap: (){
                                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderHistory()));
@@ -248,18 +248,18 @@ class _DetailPageState extends State<DetailPage> {
                     );
                   },),
               ),
-              SizedBox(height: size.height * 0.02,),
+              SizedBox(height: size.height * 0.0,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 14),
                 child: Row(
                   children: [
                     Expanded(
                       child: Column(
-                        children: [
+                        children: const [
                           BottomGridContainer(
                             title: 'Thanks for visiting',
                             subTitle: "Leave  feedBack",
-                            color:Colors.blue.withOpacity(0.9),
+                            color:blueColor,
                             image: "assets/icons/message.png",
                           ),
                         ],
@@ -268,11 +268,11 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(width: size.width * 0.03,),
                     Expanded(
                       child: Column(
-                        children:  [
+                        children:  const [
                           BottomGridContainer(
                             title: 'Invite Friends',
                             subTitle: "Refer a none friend and\n earn 100 kepi coins",
-                            color:darkPurple.withOpacity(0.7),
+                            color:pupleColor,
                             image: "assets/icons/invitation.png",
                           ),
                         ],

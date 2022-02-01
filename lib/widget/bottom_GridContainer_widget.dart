@@ -18,7 +18,7 @@ class BottomGridContainer extends StatelessWidget {
     final Size size  = MediaQuery.of(context).size;
     return Container(
       width: size.width,
-      height: size.height * 0.23,
+      height: size.height * 0.22,
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(10)
@@ -46,9 +46,9 @@ class BottomGridContainer extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(12),
-                      width: 56,
-                       height: 56,
+                      padding: EdgeInsets.all(10),
+                      width: 50,
+                       height: 50,
                        decoration: const BoxDecoration(
                          color: Colors.white,
                          shape: BoxShape.circle,
@@ -56,9 +56,8 @@ class BottomGridContainer extends StatelessWidget {
                         child: Image.asset(image,fit: BoxFit.cover,)
                     ),
                     SizedBox(height: 8),
-                    Text(title,style: detailPositionHeading.copyWith(fontSize: 19),textAlign: TextAlign.center,),
-
-                    Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 15),textAlign: TextAlign.center,),
+                    Text(title,style: detailPositionHeading.copyWith(fontSize: 17,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                    Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 14),textAlign: TextAlign.center,),
                   ],
                 )
             ),

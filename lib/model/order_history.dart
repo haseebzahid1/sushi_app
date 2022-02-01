@@ -24,7 +24,7 @@ class OrderProduct{
 
 List<OrderProduct> orderProduct = [
   OrderProduct(
-      title: "The Fashion Meal by Josh Yogesh",
+      title: "The Fashion Meal by Josh Yugen",
       smallTitle: "HD",
       img: "assets/icons/image.png",
       totalPrice: 33.00,
@@ -35,7 +35,7 @@ List<OrderProduct> orderProduct = [
 
   ),
   OrderProduct(
-      title: "The Fashion Meal by Josh Yogesh",
+      title: "The Fashion Meal by Josh Yugen",
       smallTitle: "HD",
       img: "assets/icons/image.png",
       totalPrice: 33.00,
@@ -45,7 +45,7 @@ List<OrderProduct> orderProduct = [
       orderNumber: 1,
   ),
   OrderProduct(
-      title: "The Fashion Meal by Josh Yogesh",
+      title: "The Fashion Meal by Josh Yugen",
       smallTitle: "HD",
       img: "assets/icons/image.png",
       totalPrice: 33.00,
@@ -55,7 +55,7 @@ List<OrderProduct> orderProduct = [
       orderNumber: 2,
   ),
   OrderProduct(
-      title: "The Fashion Meal by Josh Yogesh",
+      title: "The Fashion Meal by Josh Yugen",
       smallTitle: "HD",
       img: "assets/icons/image.png",
       totalPrice: 33.00,
@@ -65,7 +65,7 @@ List<OrderProduct> orderProduct = [
       orderNumber: 10,
   ),
   OrderProduct(
-      title: "The Fashion Meal by Josh Yogesh",
+      title: "The Fashion Meal by Josh Yugen",
       smallTitle: "HD",
       img: "assets/icons/image.png",
       totalPrice: 33.00,

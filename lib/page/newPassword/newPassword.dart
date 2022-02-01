@@ -94,7 +94,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                             color: secondary,
                             bgcolor: bgButtonBlue,
                             size: 22,
-                            padding:EdgeInsets.symmetric(vertical: 13),
+                            padding:EdgeInsets.symmetric(vertical: 14),
                           ),
 
                         ],

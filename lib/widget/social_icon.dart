@@ -19,7 +19,7 @@ class SocialIcon extends StatelessWidget {
           color: bgColor,
           shape: BoxShape.circle,
         ),
-        child: Image.asset(image,color: color,fit: BoxFit.fill,width: 60,height: 60,),
+        child: Image.asset(image,color: color,fit: BoxFit.fill,width: 50,height: 50,),
       ),
     );
   }

@@ -8,42 +8,54 @@ class MyDrawerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size  = MediaQuery.of(context).size;
     return ListView(
+      padding: EdgeInsets.symmetric(horizontal: 20,vertical: 0),
       children: [
-        ListTile(
-          leading: Image.asset("assets/icons/ic_edit_profile.png"),
-          title:const Text("Edit Profile",style: headingDrawerText,),
-          onTap: (){Navigator.of(context).pop();},
+        SizedBox(
+          height: size.height * 0.04,
         ),
         ListTile(
+          leading: Image.asset("assets/icons/ic_edit_profile.png"),
+          title: Text("Edit Profile",style: headingDrawerText,),
+          onTap: (){Navigator.of(context).pop();},
+        ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
+        ListTile(
           leading: Image.asset("assets/icons/ic_password.png"),
-          title:const Text("Change Password",style: headingDrawerText,),
+          title: Text("Change Password",style: headingDrawerText,),
           onTap: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPassword()));
           },
         ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(
           leading: Image.asset("assets/icons/ic_history.png"),
-          title:const Text("Order History",style: headingDrawerText,),
+          title: Text("Order History",style: headingDrawerText,),
           onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>OrderHistory()));},
-        ),  ListTile(
+        ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
+        ListTile(
           leading: Image.asset("assets/icons/ic_notification.png"),
-          title:const Text("Notification",style: headingDrawerText,),
+          title: Text("Notification",style: headingDrawerText,),
           onTap: (){Navigator.of(context).pop();},
         ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(
           leading: Image.asset("assets/icons/ic_privacy.png"),
-          title:const Text("Privacy Policy",style: headingDrawerText,),
+          title: Text("Privacy Policy",style: headingDrawerText,),
           onTap: (){Navigator.of(context).pop();},
         ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(
           leading: Image.asset("assets/icons/ic_terms.png"),
-          title:const Text("Terms of use",style: headingDrawerText,),
+          title: Text("Terms of use",style: headingDrawerText,),
           onTap: (){Navigator.of(context).pop();},
         ),
+        Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(
           leading: Image.asset("assets/icons/ic_logout.png"),
-          title:const Text("Logout",style: headingDrawerText,),
+          title: Text("Logout",style: headingDrawerText,),
           onTap: (){Navigator.of(context).pop();},
         ),
 

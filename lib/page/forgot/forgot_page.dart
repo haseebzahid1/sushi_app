@@ -66,7 +66,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                             isPassword: false,
                           ),
                           SizedBox(height: size.height* 0.03,),
-                          Text("Please Enter an email t send reset Password Instructions",style: textHeading,textAlign: TextAlign.center,),
+                          Text("Please Enter an email to send reset\n Password Instructions",style: textHeading,textAlign: TextAlign.center,),
                           SizedBox(height: size.height* 0.03,),
                           FormButton(
                             onTap: (){
@@ -80,11 +80,12 @@ class ForgotPasswordWidget extends StatelessWidget {
                               }
                             },
                             textButton: "Send Email",
-                            width: size.width,
+                            width: size.width * 0.8,
+                            // height: 50,
                             color: secondary,
                             bgcolor: bgButtonBlue,
                             size: 22,
-                            padding:EdgeInsets.symmetric(vertical: 13),
+                            padding:EdgeInsets.symmetric(vertical: 14),
                           ),
 
                         ],

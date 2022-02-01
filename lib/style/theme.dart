@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+const pupleColor = Color.fromRGBO(146, 115, 169, 10);
 const Color primary = Color(0xff000000);
 const Color medium = Color(0xff515151);
 const Color secondary = Color(0xffffffff);

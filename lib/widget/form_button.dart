@@ -7,6 +7,7 @@ class FormButton extends StatefulWidget {
   void Function()? onTap;
   final double? size;
   final double width;
+  final double? height;
   final Color color;
   final Color bgcolor;
   EdgeInsetsGeometry? padding;
@@ -18,6 +19,7 @@ class FormButton extends StatefulWidget {
     required this.color,
     required this.bgcolor,
     this.padding,
+    this.height,
   }) : super(key: key);
 
   @override
@@ -33,6 +35,7 @@ class _FormButtonState extends State<FormButton> {
       child: Container(
         padding:widget.padding??EdgeInsets.symmetric(vertical: 11),
         width: widget.width,
+        height: widget.height,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -45,7 +48,7 @@ class _FormButtonState extends State<FormButton> {
           color: widget.bgcolor,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(child: Text(widget.textButton,style: TextStyle(fontSize:widget.size ?? 20,fontWeight: FontWeight.w600,color: widget.color,fontFamily: "Poppins"))),
+        child: Center(child: Text(widget.textButton,style: Theme.of(context).textTheme.button,)),
       ),
     );
   }

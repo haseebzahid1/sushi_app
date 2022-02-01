@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/page/splashscreen.dart';
+import 'package:sushi/page/splashScreen.dart';
 
 class MainSplashScreen extends StatefulWidget {
   const MainSplashScreen({Key? key}) : super(key: key);

@@ -11,11 +11,11 @@ class DetailRowView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          Text(title,style: TextStyle(fontSize: 18,fontFamily: "Avenger",fontWeight: FontWeight.bold)),
+          Text(title,style: TextStyle(fontSize: 15,fontFamily: "Avenger",fontWeight: FontWeight.bold)),
           Spacer(),
           Row(
             children: [
-              Text(subTitle,style: TextStyle(fontSize: 16,fontFamily: "Avenger",fontWeight: FontWeight.bold,color: Colors.grey),),
+              Text(subTitle,style: TextStyle(fontSize: 15,fontFamily: "Avenger",fontWeight: FontWeight.bold,color: Colors.black54),),
             ],
           ),
         ],

@@ -22,8 +22,8 @@ class GridContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: size.width,
-        height: size.height * 0.22,
+        width: size.width * 0.45,
+        height: size.height * 0.2,
         decoration: BoxDecoration(
         color: color,
           borderRadius: BorderRadius.circular(10)
@@ -51,8 +51,8 @@ class GridContainer extends StatelessWidget {
                   child: Column(
                     children: [
                       Image.asset(image,width: 50,height: 50,),
-                      Text(title,style: detailPositionHeading.copyWith(fontSize: 21),textAlign: TextAlign.center,),
-                      Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 16),textAlign: TextAlign.center,),
+                      Text(title,style: detailPositionHeading.copyWith(fontSize: 17,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                      Text(subTitle,style: detailPositionSubHeading.copyWith(fontSize: 14),textAlign: TextAlign.center,),
                     ],
                   )
               ),

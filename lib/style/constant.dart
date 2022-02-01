@@ -1,42 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/style/theme.dart';
 
-const kOrderAppVBarTitle = TextStyle(color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
-const kTextTitle = TextStyle(fontFamily:"Avenir",fontSize: 17,fontWeight: FontWeight.w500);
+const darkBlue = Color.fromRGBO(0, 84, 165, 10);
+
+const kOrderAppVBarTitle = TextStyle(fontSize:16,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
+const kTextTitle = TextStyle(fontFamily:"Avenir",fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600);
 const kPasswordTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 17,fontFamily:"Avenir",decoration: TextDecoration.underline,decorationThickness: 1.5,);
+final forgtopasswordStyle = TextStyle(
+  color: blueColor, decoration: TextDecoration.underline, fontSize: 14, fontFamily: 'Avenir',fontWeight: FontWeight.w500);
 const kOrTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 16,fontFamily:"Avenir",);
+final viewallText = TextStyle(
+  color: Colors.black54,
+  fontSize: 15,
+  fontFamily: 'Avenir',
+);
 
-
+const registerStyle = TextStyle(
+  color:Color.fromRGBO(0, 84, 165, 10), decoration: TextDecoration.underline, fontSize: 13, fontFamily: 'Avenir',);
 
 const registerHeadingStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.w600,fontFamily: 'Avenir',color: Colors.black);
 const memberHeadingStyle = TextStyle(fontSize: 17,fontWeight: FontWeight.w400,fontFamily: 'Avenir',color: Colors.black);
 const forgetPassword = TextStyle(fontSize: 13,fontWeight: FontWeight.w400,fontFamily: 'Avenir',color: medium,);
-const textHeading =  TextStyle(fontSize: 18,fontFamily: 'Avenir',color: medium,fontWeight: FontWeight.w500);
+const textHeading =  TextStyle(fontSize: 15,fontFamily: 'Avenir',color: Colors.black54,fontWeight: FontWeight.bold);
 
 
 
-const detailTextHeading =  TextStyle(fontSize: 17,fontFamily: "Avenir",fontWeight: FontWeight.bold);
-const detailTextHeading_2 = TextStyle(fontSize: 12,fontFamily: "Avenir",fontWeight: FontWeight.bold);
-const detailZeroText =  TextStyle(fontSize: 14,fontFamily: "Avenir",fontWeight: FontWeight.w500,color: Colors.lightBlue);
-const detailPositionHeading =  TextStyle(fontWeight: FontWeight.w700,fontFamily: "Avenir",fontSize: 23,color: Colors.white);
-const detailPositionSubHeading =  TextStyle(fontWeight: FontWeight.w600,fontFamily: "Avenir",fontSize: 16,color: Colors.white);
-const detailClubHeading =  TextStyle(fontSize: 17,fontFamily: "Avenir",fontWeight: FontWeight.bold);
-const headingDrawerText =  TextStyle(fontSize: 16,fontFamily: "Avenir",fontWeight: FontWeight.w600);
+const detailTextHeading =  TextStyle(fontSize: 15,fontFamily: "Avenir",fontWeight: FontWeight.bold);
+const detailTextHeading_2 = TextStyle(fontSize: 11,fontFamily: "Avenir",fontWeight: FontWeight.w700,color: Colors.black);
+const detailZeroText =  TextStyle(fontSize: 10,fontFamily: "Avenir",fontWeight: FontWeight.bold,color: Color.fromRGBO(0, 84, 165, 10));
+const detailPositionHeading =  TextStyle(fontWeight: FontWeight.bold,fontFamily: "Avenir",fontSize: 22,color: Colors.white);
+const detailPositionSubHeading =  TextStyle(fontWeight: FontWeight.bold,fontFamily: "Avenir",fontSize: 13,color: Colors.white);
+const detailClubHeading =  TextStyle(fontSize: 15,fontFamily: "Avenir",fontWeight: FontWeight.bold,color: Colors.black);
+final headingDrawerText =  TextStyle(fontSize: 12,fontFamily: "Avenir",fontWeight: FontWeight.bold,color: Colors.blue.shade900);
 const modelHeading =  TextStyle(color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold,fontSize: 18);
 const modelSubHeading =  TextStyle(color: Colors.grey,fontFamily: "Avenir",fontWeight: FontWeight.w600,fontSize: 16);
-const orderHeading =  TextStyle(fontSize: 21,fontWeight: FontWeight.bold,color: Colors.blue,fontFamily: "Avenir");
-const orderSubHeading =  TextStyle(color: Colors.grey,fontFamily: "Avenir",fontWeight: FontWeight.w600,fontSize: 16);
-const orderDetailHeading =  TextStyle(fontSize: 18,fontWeight: FontWeight.bold,fontFamily: "Avenir");
-const orderDetailSubHeading =  TextStyle(fontSize: 16,fontWeight: FontWeight.w700,fontFamily: "Avenir");
+final orderHeading =  TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.blue.shade900,fontFamily: "Avenir");
+const orderSubHeading =  TextStyle(color: Colors.black38,fontFamily: "Avenir",fontWeight: FontWeight.w600,fontSize: 12);
+const orderDetailHeading =  TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: "Avenir");
+const orderDetailSubHeading =  TextStyle(fontSize: 13,fontWeight: FontWeight.w700,fontFamily: "Avenir");
 
 
-const privacyHeadingStyle = TextStyle(fontSize: 17,fontWeight: FontWeight.bold,fontFamily: 'Avenir',color: Colors.black);
-const privacyHeadingStyle_2 = TextStyle(fontSize: 15,fontWeight: FontWeight.w500,fontFamily: 'Avenir',color: Colors.blue,decoration: TextDecoration.underline,decorationThickness: 1.5);
+const privacyHeadingStyle = TextStyle(fontSize: 13,fontWeight: FontWeight.bold,fontFamily: 'Avenir',color: Colors.black54,);
+const privacyHeadingStyle_2 = TextStyle(fontSize: 13,fontWeight: FontWeight.bold,fontFamily: 'Avenir',color: Colors.black,decoration: TextDecoration.underline,decorationThickness: 1.5);
 
 const categoriesTitle = TextStyle(fontSize: 17,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
 const categoriesCoinText = TextStyle(color: Colors.black,fontSize:17,fontWeight: FontWeight.bold);
 const categoriesListSubTitle = TextStyle(color: Colors.grey,fontSize: 14.5,fontWeight: FontWeight.bold,fontFamily:"Avenir" );
 const categoriesDetailViewTitle = TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.grey);
+
+const boldblackText =
+TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Avenir',);
 
 
 

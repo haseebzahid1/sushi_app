@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/model/pageViewImage_model.dart';
-import 'package:sushi/style/theme.dart';
 import 'Login/Login_page.dart';
 
 
@@ -60,8 +59,9 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("${pageViewImage[currentIndex].title}",style: const TextStyle(fontFamily:"Avenger",fontSize: 18,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-                  Text("${pageViewImage[currentIndex].description}",style: const TextStyle(fontFamily:"Avenger",fontSize: 16,fontWeight: FontWeight.w500),textAlign: TextAlign.center,),
+                  Text("${pageViewImage[currentIndex].title}",style: const TextStyle(fontFamily:"Avenger",fontSize: 17,fontWeight: FontWeight.bold,color: Colors.black),textAlign: TextAlign.center,),
+                  const SizedBox(height: 10,),
+                  Text("${pageViewImage[currentIndex].description}",style: const TextStyle(fontFamily:"Avenger",fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),textAlign: TextAlign.center,),
                   const SizedBox(height: 20,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -19,7 +19,7 @@ class OrderDetailPage extends StatelessWidget {
             child: Icon(Icons.arrow_back),
           ),
           iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
-          title:   Text("Order Detail",style: kOrderAppVBarTitle.copyWith(fontSize: 19),),
+          title:   Text("Order Detail",style: kOrderAppVBarTitle.copyWith(fontSize: 16),),
           backgroundColor: Colors.white,
           // elevation: 0,
 
@@ -49,18 +49,19 @@ class OrderDetailPage extends StatelessWidget {
                     ),
                     child: Container(
 
-                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                        const Text("Order Type",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold,fontFamily: "Avenger")),
+                          SizedBox(height: size.height * 0.01,),
+                        const Text("Your Type",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,fontFamily: "Avenger",color: Colors.black)),
                           SizedBox(height: size.height * 0.02,),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                width: size.width * 0.25,
-                                height: size.height * 0.14,
+                                width: size.width * 0.23,
+                                height: size.height * 0.12,
                                 child: Image.asset(orderDetailItem.img,fit: BoxFit.cover,),
                               ),
                               SizedBox(width: size.width * 0.02,),
@@ -73,7 +74,7 @@ class OrderDetailPage extends StatelessWidget {
                                         style: orderDetailSubHeading.copyWith(color: Colors.black),
                                         children:  [
                                           TextSpan(text: '${orderDetailItem.title}\n',style: orderDetailHeading),
-                                          TextSpan(text: '${orderDetailItem.orderNumber}\n', ),
+                                          TextSpan(text: 'Order #${orderDetailItem.orderNumber}\n', ),
                                           TextSpan(text: '${orderDetailItem.time}\n',),
                                           TextSpan(text: '${orderDetailItem.totalPrice} DH',),
                                         ],
@@ -81,19 +82,20 @@ class OrderDetailPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+
                               ),
                             ],
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Address",style: orderDetailSubHeading.copyWith(fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text("Address",style: orderDetailSubHeading.copyWith(fontSize: 16,fontWeight: FontWeight.bold),),
                               SizedBox(height: size.height * 0.02,),
                               Text("Cash",style: orderDetailSubHeading.copyWith(color: Colors.grey)),
                               SizedBox(height: size.height * 0.01,),
                               Row(
                                 children:  [
-                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 17),),
+                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 14,color: Colors.black38),),
                                   Spacer(),
                                   Text("${orderDetailItem.totalPrice}",style: orderDetailSubHeading,),
                                 ],
@@ -103,7 +105,7 @@ class OrderDetailPage extends StatelessWidget {
                                 text: TextSpan(
                                   children: [
                                     const TextSpan(text: 'Contact Info : ',style: privacyHeadingStyle),
-                                    TextSpan(text: '${orderDetailItem.contactCoinNumber}', style: privacyHeadingStyle.copyWith(color: Colors.blue,fontSize: 16),),
+                                    TextSpan(text: '${orderDetailItem.contactCoinNumber}', style: privacyHeadingStyle.copyWith(color: Colors.blue,fontSize: 12),),
                                   ],
                                 ),
                               ),
@@ -111,7 +113,7 @@ class OrderDetailPage extends StatelessWidget {
                                 text: TextSpan(
                                   children: [
                                     const TextSpan(text: 'Your ID : ',style: privacyHeadingStyle),
-                                    TextSpan(text: '${orderDetailItem.orderId}', style: privacyHeadingStyle.copyWith(color: Colors.blue,fontSize: 16),),
+                                    TextSpan(text: '${orderDetailItem.orderId}', style: privacyHeadingStyle.copyWith(color: Colors.blue,fontSize: 12),),
                                   ],
                                 ),
                               ),
