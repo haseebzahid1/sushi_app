@@ -5,7 +5,6 @@ import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'categories_girdview.dart';
 import 'categories_selected.dart';
-import 'layout_TopButtonRow.dart';
 
 class CategoriesListView extends StatefulWidget {
    CategoriesListView({Key? key,  }) : super(key: key);
@@ -15,7 +14,7 @@ class CategoriesListView extends StatefulWidget {
 }
 
 class _CategoriesListViewState extends State<CategoriesListView> {
-  bool grid = true;
+  bool currentBool = true;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -66,7 +65,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                     GestureDetector(
                       onTap: () {
                         setState(() {
-                          grid = false;
+                          currentBool = false;
                         });
                         print("1");
                       },
@@ -77,14 +76,14 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                           width: 20,
                           height: 20,
                           fit: BoxFit.fill,
-                          color: grid ? Colors.grey : blueColor,
+                          color: currentBool ? Colors.grey : blueColor,
                         ),
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
                         setState(() {
-                          grid = true;
+                          currentBool = true;
                         });
                         print("2");
                       },
@@ -95,7 +94,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                           width: 20,
                           height: 20,
                           fit: BoxFit.fill,
-                          color: grid ? blueColor : Colors.grey,
+                          color: currentBool ? blueColor : Colors.grey,
                         ),
                       ),
                     ),
@@ -104,7 +103,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
               ],
             ),
           ),
-          grid ?
+          currentBool ?
           Expanded(child: CategoriesGridView())
               : Expanded(child: ListView.builder(
               itemCount: categories.length,

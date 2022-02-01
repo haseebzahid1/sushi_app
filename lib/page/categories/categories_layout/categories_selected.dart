@@ -4,7 +4,6 @@ import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/custom_button.dart';
 
-
 class CategoriesDetailView extends StatefulWidget {
   final Categories detailViewCategories;
   const CategoriesDetailView({Key? key, required this.detailViewCategories,}) : super(key: key);
@@ -52,7 +51,7 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                 width: size.width,
-                height: size.height * 0.45,
+                height: size.height * 0.40,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),

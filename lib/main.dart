@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/categories/categories_layout/categories_listview.dart';
+import 'package:sushi/page/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,10 +36,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      // home:  OrderHistory(),
-      home:  CategoriesListView(),
-      // home:  CategoriesListView(),
-      // home:  RegisterPage(),
+      home:  SplashScreen(),
+      // home:  MapPage(),
     );
   }
 }
