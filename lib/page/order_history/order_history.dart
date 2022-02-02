@@ -18,7 +18,7 @@ class OrderHistory extends StatelessWidget {
           child: Icon(Icons.arrow_back),
         ),
         iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
-          title:  const Text("Order History",style: kOrderAppVBarTitle,),
+          title:  const Text("Order History",style: kAppBarTitle,),
         backgroundColor: Colors.white,
         // elevation: 0,
 

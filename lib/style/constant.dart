@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sushi/style/theme.dart';
 
 const darkBlue = Color.fromRGBO(0, 84, 165, 10);
-
-const kOrderAppVBarTitle = TextStyle(fontSize:16,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
+const kAppBarTitle = TextStyle(fontSize:16,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
 const kTextTitle = TextStyle(fontFamily:"Avenir",fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600);
 const kPasswordTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 17,fontFamily:"Avenir",decoration: TextDecoration.underline,decorationThickness: 1.5,);
 final forgtopasswordStyle = TextStyle(
@@ -50,6 +49,10 @@ const categoriesDetailViewTitle = TextStyle(fontSize: 16,fontWeight: FontWeight.
 
 const boldblackText =
 TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Avenir',);
+
+const description = TextStyle(fontFamily: 'Avenir', fontSize: 14, color: Colors.grey,);
+const aboutUsMainTitle = TextStyle(fontFamily: 'Avenir', fontSize: 20, color: Colors.black,);
+const aboutUsTitle = TextStyle(fontFamily: 'Avenir', fontSize: 18, color: Colors.black, fontWeight: FontWeight.w600);
 
 
 

@@ -19,7 +19,7 @@ class OrderDetailPage extends StatelessWidget {
             child: Icon(Icons.arrow_back),
           ),
           iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
-          title:   Text("Order Detail",style: kOrderAppVBarTitle.copyWith(fontSize: 16),),
+          title:   Text("Order Detail",style: kAppBarTitle.copyWith(fontSize: 16),),
           backgroundColor: Colors.white,
           // elevation: 0,
 

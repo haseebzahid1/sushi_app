@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/splashScreen.dart';
+import 'package:sushi/page/DetailPage/detail_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  SplashScreen(),
-      // home:  MapPage(),
+      home:  DetailPage(),
+      // home:  SplashScreen(),
     );
   }
 }
