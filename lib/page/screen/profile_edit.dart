@@ -67,7 +67,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: size.height * 0.04,),
+              SizedBox(height: size.height * 0.02,),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 18),
                 child: Column(

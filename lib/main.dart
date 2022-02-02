@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  CheckOutPage(),
-      // home:  DetailPage(),
+      // home:  CheckOutPage(),
+      home:  DetailPage(),
       // home:  SplashScreen(),
     );
   }

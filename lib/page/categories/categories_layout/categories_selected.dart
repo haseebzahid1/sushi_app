@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/categories_model.dart';
+import 'package:sushi/page/checkOut/checkOutPage.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/custom_button.dart';
@@ -113,7 +114,12 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
                       bottom: 10,
                       child: Column(
                         children: [
-                          CustomButton(bgColor: kCustomButton, textButton: 'Order Now', width: size.width * 0.6, color: Colors.white,),
+                          GestureDetector(
+                              onTap: (){
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CheckOutPage()));
+                              },
+                              child: CustomButton(bgColor: kCustomButton, textButton: 'Order Now', width: size.width * 0.6, color: Colors.white,)
+                          ),
                         ],
                       ),
                     ),
