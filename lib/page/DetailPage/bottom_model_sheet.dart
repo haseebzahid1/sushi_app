@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/map_screen.dart';
 import 'package:sushi/model/custom_contactModel.dart';
+import 'package:sushi/page/screen/track_order_screen.dart';
 import 'package:sushi/style/constant.dart';
 
 
 class DetailBottomSheet extends StatefulWidget {
-  DetailBottomSheet({Key? key}) : super(key: key);
+ const DetailBottomSheet({Key? key}) : super(key: key);
 
   @override
   _DetailBottomSheetState createState() => _DetailBottomSheetState();
@@ -62,6 +63,8 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
                         print(currentIndex);
                         if(currentIndex == 0){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
+                        }if(currentIndex == 2){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TrackYourOrderScreen()));
                         }
                       },
                     );

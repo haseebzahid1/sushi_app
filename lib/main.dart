@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sushi/page/DetailPage/detail_page.dart';
+import 'package:sushi/page/checkOut/checkOutPage.dart';
+import 'package:sushi/page/screen/track_order_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +38,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:  DetailPage(),
+      home:  CheckOutPage(),
+      // home:  DetailPage(),
       // home:  SplashScreen(),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/page/DetailPage/drawer_header.dart';
+import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/widget/social_icon.dart';
 

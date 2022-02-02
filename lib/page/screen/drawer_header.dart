@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/page/about%20us/about_us.dart';
+import 'package:sushi/page/screen/about_us.dart';
 import 'package:sushi/page/newPassword/newPassword.dart';
-import 'package:sushi/page/order_history/order_history.dart';
-import 'package:sushi/page/profile_edit/profile_edit.dart';
+import 'package:sushi/page/screen/order_history.dart';
+import 'package:sushi/page/screen/profile_edit.dart';
 import 'package:sushi/style/constant.dart';
 
 class MyDrawerList extends StatelessWidget {
@@ -48,13 +48,13 @@ class MyDrawerList extends StatelessWidget {
         ListTile(
           leading: Image.asset("assets/icons/ic_privacy.png"),
           title: Text("Privacy Policy",style: headingDrawerText,),
-          onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutUsScreen()));},
+          onTap: (){Navigator.of(context).pop();},
         ),
         Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(
           leading: Image.asset("assets/icons/ic_terms.png"),
           title: Text("Terms of use",style: headingDrawerText,),
-          onTap: (){Navigator.of(context).pop();},
+          onTap: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutUsScreen()));},
         ),
         Container(width: size.width,height: 2,color: Color(0xFFC2C2C2),),
         ListTile(

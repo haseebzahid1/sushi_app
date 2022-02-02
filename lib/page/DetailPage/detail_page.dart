@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
-import 'package:sushi/page/order_history/order_history.dart';
+import 'package:sushi/page/screen/order_history.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/bottom_GridContainer_widget.dart';
 import 'package:sushi/widget/detailRowView_widget.dart';
 import 'package:sushi/widget/gridContainer_widget.dart';
-import 'detail_widget/bottom_model_sheet.dart';
-import 'drawer_header.dart';
+import 'bottom_model_sheet.dart';
+import '../screen/drawer_header.dart';
 
 class DetailPage extends StatefulWidget {
  const DetailPage({Key? key}) : super(key: key);

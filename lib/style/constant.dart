@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/style/theme.dart';
 
-const darkBlue = Color.fromRGBO(0, 84, 165, 10);
+// const darkBlue = Color.fromRGBO(0, 84, 165, 10);
 const kAppBarTitle = TextStyle(fontSize:16,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
 const kTextTitle = TextStyle(fontFamily:"Avenir",fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600);
 const kPasswordTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 17,fontFamily:"Avenir",decoration: TextDecoration.underline,decorationThickness: 1.5,);
@@ -12,8 +12,14 @@ final viewallText = TextStyle(
   color: Colors.black54,
   fontSize: 15,
   fontFamily: 'Avenir',
+  fontWeight: FontWeight.w600
 );
-
+final normalText = TextStyle(
+  color: Colors.black,
+  fontSize: 15,
+  fontFamily: 'Avenir',
+    fontWeight: FontWeight.w600
+);
 const registerStyle = TextStyle(
   color:Color.fromRGBO(0, 84, 165, 10), decoration: TextDecoration.underline, fontSize: 13, fontFamily: 'Avenir',);
 
@@ -53,6 +59,8 @@ TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold, fontFa
 const description = TextStyle(fontFamily: 'Avenir', fontSize: 14, color: Colors.grey,);
 const aboutUsMainTitle = TextStyle(fontFamily: 'Avenir', fontSize: 20, color: Colors.black,);
 const aboutUsTitle = TextStyle(fontFamily: 'Avenir', fontSize: 18, color: Colors.black, fontWeight: FontWeight.w600);
+
+
 
 
 

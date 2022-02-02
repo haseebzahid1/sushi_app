@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/order_history.dart';
-import 'package:sushi/page/order_detail/order_detail.dart';
+import 'package:sushi/page/screen/order_detail.dart';
 import 'package:sushi/style/constant.dart';
+import 'package:sushi/style/theme.dart';
+
+import 'order_detail.dart';
 
 class OrderHistory extends StatelessWidget {
   const OrderHistory({Key? key}) : super(key: key);

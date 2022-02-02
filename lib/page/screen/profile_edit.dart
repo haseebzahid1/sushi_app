@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/page/DetailPage/drawer_header.dart';
+import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/widget/custom_button.dart';
 
@@ -29,8 +29,6 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
         title: const Text("Edit Profile",style: kAppBarTitle,),
-        // backgroundColor: Colors.lightBlue,
-        // elevation: 0,
         actions:  [
           GestureDetector(
               onTap: (){
@@ -51,7 +49,6 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         },
         child: SingleChildScrollView(
           child: Column(
-            // padding: EdgeInsets.zero,
             children: [
                SizedBox(height: size.height * 0.04,),
               Row(
