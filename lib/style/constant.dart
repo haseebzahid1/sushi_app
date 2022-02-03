@@ -30,6 +30,12 @@ const viewallText = TextStyle(
   fontFamily: 'Avenir',
     fontWeight: FontWeight.w600
 );
+const cardsmallTextstyle = TextStyle(
+  color: Colors.white,
+  fontSize: 13,
+  fontFamily: 'Avenir',
+    fontWeight: FontWeight.w600
+);
 const registerStyle = TextStyle(
   color:Color.fromRGBO(0, 84, 165, 10), decoration: TextDecoration.underline, fontSize: 15, fontFamily: 'Avenir',fontWeight: FontWeight.bold);
 

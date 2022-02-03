@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
+import 'package:sushi/page/screen/invite_friends_screen.dart';
 import 'package:sushi/page/screen/order_history.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
@@ -51,6 +52,7 @@ class _DetailPageState extends State<DetailPage> {
               // alignment: Alignment.topCenter,
               child: Image.asset("assets/icons/main-remove.png",fit: BoxFit.cover,)
           ),
+          const SizedBox(height: 10,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -103,6 +105,7 @@ class _DetailPageState extends State<DetailPage> {
               Container(
                 width: size.width,
                 height: size.height * 0.14,
+                // height: size.height * 0.2,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                 // color: Colors.red,
@@ -111,7 +114,9 @@ class _DetailPageState extends State<DetailPage> {
                   fit: StackFit.expand,
                   alignment: Alignment.center,
                   children: [
-                    Image.asset("assets/icons/background.png",width: size.width,fit: BoxFit.cover, ),
+                    Container(
+
+                        child: Image.asset("assets/icons/background.png",width: size.width,fit: BoxFit.cover, )),
                     Positioned(
                       top: 0,
                       bottom: 5,
@@ -138,7 +143,7 @@ class _DetailPageState extends State<DetailPage> {
                         children:  const [
                           Text("Get Kanji Coins",style: detailPositionHeading,textAlign: TextAlign.center,),
                           SizedBox(height: 3,),
-                          Text("For dine-in Orders",style: detailPositionSubHeading,textAlign: TextAlign.center,),
+                          Text("For dine-in Orders",style: cardsmallTextstyle,textAlign: TextAlign.center,),
                         ],
                       ),
                     ),
@@ -256,7 +261,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Expanded(
                       child: Column(
-                        children: const [
+                        children:  [
                           BottomGridContainer(
                             title: 'Thanks for visiting',
                             subTitle: "Leave  feedBack",
@@ -269,8 +274,11 @@ class _DetailPageState extends State<DetailPage> {
                     SizedBox(width: size.width * 0.03,),
                     Expanded(
                       child: Column(
-                        children:  const [
+                        children:   [
                           BottomGridContainer(
+                            onTab: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>InviteFriendsScreen()));
+                            },
                             title: 'Invite Friends',
                             subTitle: "Refer a none friend and\n earn 100 kepi coins",
                             color:pupleColor,
