@@ -24,6 +24,8 @@ class NewPassword extends StatelessWidget {
 class ForgotPasswordWidget extends StatelessWidget {
   ForgotPasswordWidget({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final newPasswordProvider = Provider.of<NewPasswordProvider>(context);
@@ -56,11 +58,10 @@ class ForgotPasswordWidget extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 26),
                       child: Column(
                         children: [
-                          const Text("Please Enter a new password\n and confirm the password",style: textHeading,textAlign: TextAlign.center,),
+                          const Text("Please Enter a new password\n and confirm the password",style: viewallText,textAlign: TextAlign.center,),
                           SizedBox(height: size.height* 0.04,),
                           InputFieldWidget(
-                            initialValue: "1234567",
-                            // hintText: "1234567",
+                            controller: password,
                             labelText: "Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
                             validate:newPasswordProvider.validatePassword,
@@ -69,8 +70,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                           ),
                           SizedBox(height: size.height* 0.03,),
                           InputFieldWidget(
-                            initialValue: "1234567",
-                            // hintText: "1234567",
+                            controller: confirmPassword,
                             labelText: "Confirm Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
                             validate:newPasswordProvider.validateConfirmPassword,
@@ -82,12 +82,12 @@ class ForgotPasswordWidget extends StatelessWidget {
                             onTap: (){
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewPassword()));
                               newPasswordProvider.onSubmit();
-                              if(_formKey.currentState!.validate()){
-                                _formKey.currentState!.save();
-                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              }else{
-                                Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              }
+                              // if(_formKey.currentState!.validate()){
+                              //   _formKey.currentState!.save();
+                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              // }else{
+                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
+                              // }
                             },
                             textButton: "Submit",
                             width: size.width,

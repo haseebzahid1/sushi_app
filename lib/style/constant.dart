@@ -16,9 +16,16 @@ const viewAllText = TextStyle(
   fontFamily: 'Avenir',
   fontWeight: FontWeight.bold
 );
-
+const boldPriceText =
+TextStyle(color: Color.fromRGBO(0, 84, 165, 10), fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Avenir',);
 const normalText = TextStyle(
   color: Colors.black,
+  fontSize: 15,
+  fontFamily: 'Avenir',
+    fontWeight: FontWeight.w600
+);
+const viewallText = TextStyle(
+  color: Colors.black54,
   fontSize: 15,
   fontFamily: 'Avenir',
     fontWeight: FontWeight.w600

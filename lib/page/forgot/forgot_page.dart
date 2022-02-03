@@ -23,6 +23,7 @@ class ForgotPassword extends StatelessWidget {
 class ForgotPasswordWidget extends StatelessWidget {
    ForgotPasswordWidget({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
+   TextEditingController email = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final forgotPasswordProvider = Provider.of<ForgotPasswordProvider>(context);
@@ -56,9 +57,9 @@ class ForgotPasswordWidget extends StatelessWidget {
                         children: [
                           SizedBox(height: size.height* 0.04,),
                           InputFieldWidget(
-                            initialValue: "Email@gmail.com",
-                            // hintText: "Email@gmail.com",
-                            labelText: "Email@gmail.com",
+                            controller: email,
+                            // initialValue: "Email@gmail.com",
+                            labelText: "Email",
                             textInputType: TextInputType.emailAddress,
                             validate:forgotPasswordProvider.validateUserEmail,
                             onSaved: forgotPasswordProvider.onSaveUserEmail,
@@ -66,18 +67,18 @@ class ForgotPasswordWidget extends StatelessWidget {
                             isPassword: false,
                           ),
                           SizedBox(height: size.height* 0.03,),
-                          Text("Please Enter an email to send reset\n Password Instructions",style: textHeading,textAlign: TextAlign.center,),
+                          const Text("Please Enter an email to send reset\n Password Instructions",style: viewallText,textAlign: TextAlign.center,),
                           SizedBox(height: size.height* 0.03,),
                           FormButton(
                             onTap: (){
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewPassword()));
                               forgotPasswordProvider.onSubmit();
-                              if(_formKey.currentState!.validate()){
-                                _formKey.currentState!.save();
-                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              }else{
-                                Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              }
+                              // if(_formKey.currentState!.validate()){
+                              //   _formKey.currentState!.save();
+                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              // }else{
+                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
+                              // }
                             },
                             textButton: "Send Email",
                             width: size.width * 0.8,

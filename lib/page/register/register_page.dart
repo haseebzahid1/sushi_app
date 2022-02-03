@@ -28,6 +28,11 @@ class RegisterPage extends StatelessWidget {
 class RegisterPageWidget extends StatelessWidget {
   RegisterPageWidget({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
+  TextEditingController email = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController dateOfBirth = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final TapGestureRecognizer registerHere = TapGestureRecognizer()..onTap = (){
@@ -70,8 +75,7 @@ class RegisterPageWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           InputFieldWidget(
-                            initialValue:"Email@gmail.com",
-                            // hintText: "Email@gmail.com",
+                            controller: email,
                             labelText: "Email@gmail.com",
                             textInputType: TextInputType.emailAddress,
                             validate:registerProvider.validateUserEmail,
@@ -81,8 +85,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue: "John",
-                            // hintText: "John",
+                            controller: name,
                             labelText: "john",
                             validate:registerProvider.validateUserName,
                             onSaved: registerProvider.onSaveUserEmail,
@@ -91,8 +94,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            textInputType: TextInputType.number,
-                            initialValue: "00/00/0000",
+                            controller: dateOfBirth,
                             // hintText: "John",
                             labelText: "Date Of Birth",
                             validate:registerProvider.validateDateOfBirth,
@@ -103,7 +105,7 @@ class RegisterPageWidget extends StatelessWidget {
                           const SizedBox(height: 17,),
                           InputFieldWidget(
                             textInputType: TextInputType.number,
-                            initialValue: "0312-1234567",
+                            controller: phone,
                             // hintText: "John",
                             labelText: "Phone Number",
                             validate:registerProvider.validatePhoneNumber,
@@ -113,7 +115,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            initialValue:"1234567",
+                            controller: phone,
                             // hintText: "1234567",
                             labelText: "Password",
                             prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
@@ -126,12 +128,12 @@ class RegisterPageWidget extends StatelessWidget {
                           FormButton(
                             onTap: (){
                               registerProvider.onSubmit();
-                              if(_formKey.currentState!.validate()){
-                                _formKey.currentState!.save();
-                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              }else{
-                                Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              }
+                              // if(_formKey.currentState!.validate()){
+                              //   _formKey.currentState!.save();
+                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              // }else{
+                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
+                              // }
                             },
                             textButton: "Sign Up",
                             width: size.width * 0.8,
@@ -167,9 +169,9 @@ class RegisterPageWidget extends StatelessWidget {
                           textAlign: TextAlign.center,
                           text: TextSpan(
                             children: [
-                              TextSpan(text: 'New User ',style: privacyHeadingStyle),
+                              TextSpan(text: 'New User ',style: viewallText),
                               TextSpan(text: 'Login Here ', style: privacyHeadingStyle_2,recognizer: registerHere,),
-                              TextSpan(text: 'By singning up, your agree to our',style: privacyHeadingStyle.copyWith(height: 1.5,)),
+                              TextSpan(text: 'By singning up, your agree to our',style: viewallText.copyWith(height: 1.5,)),
                               TextSpan(text: 'Terms of Use',style: privacyHeadingStyle_2.copyWith(height: 1.5,),recognizer: termsOfUse),
                             ],
                           ),
