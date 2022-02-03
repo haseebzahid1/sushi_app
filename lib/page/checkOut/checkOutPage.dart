@@ -86,7 +86,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                       children: [
                         Text(
                           "Pickup Time",
-                          style: viewallText,
+                          style: viewAllText,
                         ),
                         DropdownButton(
                           isExpanded: true,
@@ -117,7 +117,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                     children: [
                       Text(
                         "payment Method",
-                        style: viewallText,
+                        style: viewAllText,
                       ),
                       DropdownButton(
                           isExpanded: true,
@@ -214,7 +214,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
         children: [
           Text(
             "Address",
-            style: viewallText,
+            style: viewAllText,
           ),
           TextFormField(
             controller: controller,

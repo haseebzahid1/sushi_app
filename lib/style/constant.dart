@@ -5,23 +5,26 @@ import 'package:sushi/style/theme.dart';
 const kAppBarTitle = TextStyle(fontSize:16,color: Colors.black,fontFamily: "Avenir",fontWeight: FontWeight.bold);
 const kTextTitle = TextStyle(fontFamily:"Avenir",fontSize: 18,color: Colors.black,fontWeight: FontWeight.w600);
 const kPasswordTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 17,fontFamily:"Avenir",decoration: TextDecoration.underline,decorationThickness: 1.5,);
-final forgtopasswordStyle = TextStyle(
-  color: blueColor, decoration: TextDecoration.underline, fontSize: 14, fontFamily: 'Avenir',fontWeight: FontWeight.w500);
+
+const forgotPasswordStyle = TextStyle(
+  color: blueColor, decoration: TextDecoration.underline, fontSize: 13, fontFamily: 'Avenir',fontWeight: FontWeight.bold);
+
 const kOrTitle = TextStyle(color: medium,fontWeight: FontWeight.w500,fontSize: 16,fontFamily:"Avenir",);
-final viewallText = TextStyle(
+const viewAllText = TextStyle(
   color: Colors.black54,
   fontSize: 15,
   fontFamily: 'Avenir',
-  fontWeight: FontWeight.w600
+  fontWeight: FontWeight.bold
 );
-final normalText = TextStyle(
+
+const normalText = TextStyle(
   color: Colors.black,
   fontSize: 15,
   fontFamily: 'Avenir',
     fontWeight: FontWeight.w600
 );
 const registerStyle = TextStyle(
-  color:Color.fromRGBO(0, 84, 165, 10), decoration: TextDecoration.underline, fontSize: 13, fontFamily: 'Avenir',);
+  color:Color.fromRGBO(0, 84, 165, 10), decoration: TextDecoration.underline, fontSize: 15, fontFamily: 'Avenir',fontWeight: FontWeight.bold);
 
 const registerHeadingStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.w600,fontFamily: 'Avenir',color: Colors.black);
 const memberHeadingStyle = TextStyle(fontSize: 17,fontWeight: FontWeight.w400,fontFamily: 'Avenir',color: Colors.black);

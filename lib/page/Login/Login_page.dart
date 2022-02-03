@@ -28,6 +28,8 @@ class LoginInPageWidget extends StatelessWidget {
    LoginInPageWidget({Key? key}) : super(key: key);
 
     final _formKey = GlobalKey<FormState>();
+   TextEditingController email = TextEditingController();
+   TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +63,15 @@ class LoginInPageWidget extends StatelessWidget {
                 SizedBox(height: size.height* 0.06,),
                 Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.always,
+                  // autovalidateMode: AutovalidateMode.always,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
                     child: Column(
                       children: [
                         InputFieldWidget(
-                          initialValue: "Email@gmail.com",
-                          labelText: "Email@gmail.com",
+                          controller: email,
+                          // initialValue: "Email@gmail.com",
+                          labelText: "Email",
                           textInputType: TextInputType.emailAddress,
                           validate:loginInProvider.validateUsername,
                           onSaved: loginInProvider.onSaveUsername,
@@ -77,7 +80,8 @@ class LoginInPageWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 17,),
                         InputFieldWidget(
-                          initialValue: "1234567",
+                          controller: password,
+                          // initialValue: "1234567",
                           labelText: "Password",
                           prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
                           validate:loginInProvider.validatePassword,
@@ -88,13 +92,13 @@ class LoginInPageWidget extends StatelessWidget {
                         FormButton(
                           onTap: (){
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
-                            loginInProvider.onSubmit();
-                            if(_formKey.currentState!.validate()){
-                              _formKey.currentState!.save();
-                              Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                            }else{
-                              Utils.showSnackBar(context, title: 'VALIDATION Error');
-                            }
+                            // loginInProvider.onSubmit();
+                            // if(_formKey.currentState!.validate()){
+                            //   _formKey.currentState!.save();
+                            //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                            // }else{
+                            //   Utils.showSnackBar(context, title: 'VALIDATION Error');
+                            // }
                           },
                           textButton: "LOGIN",
                           width: size.width,
@@ -118,7 +122,7 @@ class LoginInPageWidget extends StatelessWidget {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPassword()));
                             print("forgot password?");
                             },
-                          child:  Text("Forgot Password ?",style: forgtopasswordStyle)
+                          child:  Text("Forgot Password ?",style: forgotPasswordStyle)
                       ),
                       SizedBox(height: size.height* 0.01,),
                       const Text("or",style: kOrTitle),
@@ -135,10 +139,10 @@ class LoginInPageWidget extends StatelessWidget {
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           children: [
-                            TextSpan(text: 'New user  ',style: privacyHeadingStyle),
-                            TextSpan(text: 'Register here \n', style: privacyHeadingStyle_2,recognizer: registerHere),
-                            TextSpan(text: 'By singning up, your agree to our',style: privacyHeadingStyle.copyWith(height: 1.5)),
-                            TextSpan(text: 'Terms of Use',style: privacyHeadingStyle_2.copyWith(height: 1.5),recognizer: termsOfUse),
+                            TextSpan(text: 'New user  ',style: viewAllText),
+                            TextSpan(text: 'Register here \n', style: registerStyle,recognizer: registerHere),
+                            TextSpan(text: 'By Singning up, your agree to our',style: viewAllText.copyWith(height: 1.5)),
+                            TextSpan(text: 'Terms of Use',style: registerStyle.copyWith(height: 1.5),recognizer: termsOfUse),
                           ],
                         ),
                       ),

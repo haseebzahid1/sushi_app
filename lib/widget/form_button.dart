@@ -39,10 +39,10 @@ class _FormButtonState extends State<FormButton> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              blurRadius: 6,
-              spreadRadius: 5,
+              blurRadius: 3,
+              spreadRadius: 3,
               offset: Offset(0,-0.2),
-              color: bgButtonBlue.withOpacity(0.2),
+              color: Colors.black.withOpacity(0.1),
             ),
           ],
           color: widget.bgcolor,

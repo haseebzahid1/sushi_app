@@ -22,7 +22,7 @@ class LoginInProvider extends ChangeNotifier {
     user.email = value ?? "";
     const pattern = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
     final regExp = RegExp(pattern);
-    if (value == null || value.isEmpty) {
+    if (value!.isEmpty || value.trim() == '') {
       return "please enter your user Email";
     } else if (value.length < 4) {
       return "Email length must be 3 or long";
