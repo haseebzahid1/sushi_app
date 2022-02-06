@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/widget/custom_button.dart';
 
+import 'drawer_header.dart';
+
 class InviteFriendsScreen extends StatefulWidget {
   const InviteFriendsScreen({Key? key}) : super(key: key);
 
@@ -18,14 +20,14 @@ class _InviteFriendsScreenState extends State<InviteFriendsScreen> {
         child: Scaffold(
           appBar: PreferredSize(
               child: AppBar(
-                leading: IconButton(
-                    onPressed: (){},
-                    icon: const Icon(Icons.menu_sharp,
-                      color: Colors.black,)),
-                title: const Text("Invite Friends",
-                  style: kAppBarTitle),
-              ),
+                iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
+                title: const Text("Invite Friends", style: kAppBarTitle),),
+
               preferredSize: const Size.fromHeight(50)),
+          drawer:const Drawer(
+            // backgroundColor: Colors.transparent,
+            child: MyDrawerList(),
+          ),
           body: Column(
             children: [
                SizedBox(height: size.height * 0.06,),

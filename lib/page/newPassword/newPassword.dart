@@ -53,7 +53,8 @@ class ForgotPasswordWidget extends StatelessWidget {
                   SizedBox(height: size.height* 0.06,),
                   Form(
                     key: _formKey,
-                    autovalidateMode: AutovalidateMode.always,
+                    // autovalidateMode: AutovalidateMode.always,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 26),
                       child: Column(
@@ -80,21 +81,22 @@ class ForgotPasswordWidget extends StatelessWidget {
                           SizedBox(height: size.height* 0.03,),
                           FormButton(
                             onTap: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewPassword()));
                               newPasswordProvider.onSubmit();
-                              // if(_formKey.currentState!.validate()){
-                              //   _formKey.currentState!.save();
-                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              // }else{
-                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              // }
+                              if(_formKey.currentState!.validate()){
+                                _formKey.currentState!.save();
+                                print (_formKey.currentState!.validate());
+                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> AnyName()));
+                              }else{
+                                Utils.showSnackBar(context, title: 'VALIDATION Error');
+                              }
                             },
                             textButton: "Submit",
                             width: size.width,
                             color: secondary,
                             bgcolor: bgButtonBlue,
-                            size: 22,
-                            padding:EdgeInsets.symmetric(vertical: 14),
+                            size: 20,
+                            padding:EdgeInsets.symmetric(vertical: 12.5),
                           ),
 
                         ],

@@ -51,6 +51,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                   SizedBox(height: size.height* 0.06,),
                   Form(
                     key: _formKey,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 26),
                       child: Column(
@@ -60,7 +61,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                             controller: email,
                             // initialValue: "Email@gmail.com",
                             labelText: "Email",
-                            textInputType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.emailAddress,
                             validate:forgotPasswordProvider.validateUserEmail,
                             onSaved: forgotPasswordProvider.onSaveUserEmail,
                             prefixIcon: const Icon(Icons.person,color: kTextGrayColor,),
@@ -71,22 +72,25 @@ class ForgotPasswordWidget extends StatelessWidget {
                           SizedBox(height: size.height* 0.03,),
                           FormButton(
                             onTap: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewPassword()));
                               forgotPasswordProvider.onSubmit();
-                              // if(_formKey.currentState!.validate()){
-                              //   _formKey.currentState!.save();
-                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              // }else{
-                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              // }
+                              if(_formKey.currentState!.validate()){
+                                _formKey.currentState!.save();
+                                print (_formKey.currentState!.validate());
+                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewPassword()));
+                              }else{
+                                Utils.showSnackBar(context, title: 'VALIDATION Error');
+                                print ("Validate error");
+                              }
                             },
                             textButton: "Send Email",
                             width: size.width * 0.8,
                             // height: 50,
                             color: secondary,
                             bgcolor: bgButtonBlue,
-                            size: 22,
-                            padding:EdgeInsets.symmetric(vertical: 14),
+                            size: 20,
+                            padding:EdgeInsets.symmetric(vertical: 12.5),
                           ),
 
                         ],

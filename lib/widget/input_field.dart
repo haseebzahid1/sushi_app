@@ -14,7 +14,8 @@ class InputFieldWidget extends StatefulWidget {
   void Function(String?)? onSaved;
   String? Function(String?)? validate;
   TextEditingController? controller;
-
+  Function()? onTab;
+  TextInputType? keyboardType;
   InputFieldWidget({Key? key,
     this.initialValue,
     this.hintText,
@@ -27,6 +28,8 @@ class InputFieldWidget extends StatefulWidget {
     this.isPassword,
     this.textInputType,
     this.controller,
+    this.onTab,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -39,9 +42,10 @@ final double size = 1.3;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: widget.onTab,
       controller:widget.controller,
       obscureText: widget.isPassword ?? true,
-      keyboardType: widget.textInputType ?? TextInputType.text,
+      keyboardType: widget.keyboardType ?? TextInputType.text,
       initialValue:widget.initialValue,
       decoration:  InputDecoration(
         contentPadding: EdgeInsets.symmetric(vertical: 17),

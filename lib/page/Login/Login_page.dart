@@ -63,7 +63,8 @@ class LoginInPageWidget extends StatelessWidget {
                 SizedBox(height: size.height* 0.06,),
                 Form(
                   key: _formKey,
-                  // autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.always,
+                  // autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
                     child: Column(
@@ -72,7 +73,7 @@ class LoginInPageWidget extends StatelessWidget {
                           controller: email,
                           // initialValue: "Email@gmail.com",
                           labelText: "Email",
-                          textInputType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.emailAddress,
                           validate:loginInProvider.validateUsername,
                           onSaved: loginInProvider.onSaveUsername,
                           prefixIcon: const Icon(Icons.person,color: kTextGrayColor,),
@@ -80,6 +81,7 @@ class LoginInPageWidget extends StatelessWidget {
                         ),
                         const SizedBox(height: 17,),
                         InputFieldWidget(
+                          keyboardType: TextInputType.phone,
                           controller: password,
                           // initialValue: "1234567",
                           labelText: "Password",
@@ -91,21 +93,24 @@ class LoginInPageWidget extends StatelessWidget {
                         SizedBox(height: size.height* 0.04,),
                         FormButton(
                           onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
-                            // loginInProvider.onSubmit();
-                            // if(_formKey.currentState!.validate()){
-                            //   _formKey.currentState!.save();
-                            //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                            // }else{
-                            //   Utils.showSnackBar(context, title: 'VALIDATION Error');
-                            // }
+                            loginInProvider.onSubmit();
+                            if(_formKey.currentState!.validate()){
+                              _formKey.currentState!.save();
+                              Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              print (_formKey.currentState!.validate());
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
+                            }else{
+                              Utils.showSnackBar(context, title: 'VALIDATION Error');
+                              print ("Validate error");
+                            }
+
                           },
                           textButton: "LOGIN",
                           width: size.width,
                           color: secondary,
                           bgcolor: bgButtonBlue,
-                          size: 22,
-                          padding:EdgeInsets.symmetric(vertical: 13),
+                          size: 20,
+                          padding:EdgeInsets.symmetric(vertical: 12.5),
                         ),
                       ],
                     ),

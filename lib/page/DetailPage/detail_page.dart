@@ -47,7 +47,7 @@ class _DetailPageState extends State<DetailPage> {
         children: [
           Container(
             width: size.width,
-              height: size.height * 0.14,
+              height: size.height * 0.13,
               decoration: BoxDecoration(),
               // alignment: Alignment.topCenter,
               child: Image.asset("assets/icons/main-remove.png",fit: BoxFit.cover,)

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/DetailPage/detail_page.dart';
-import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/mainSplashScreen.dart';
+import 'package:sushi/page/splashScreen.dart';
 
 
 void main() {
@@ -39,9 +38,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      // home:   LoginInPage(),
-      home:   DetailPage(),
-      // home:   MainSplashScreen(),
+      home:   MainSplashScreen(),
     );
   }
 }

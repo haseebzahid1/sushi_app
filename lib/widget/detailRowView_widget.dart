@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/style/constant.dart';
 
 class DetailRowView extends StatelessWidget {
   final String title;
@@ -11,11 +12,11 @@ class DetailRowView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          Text(title,style: TextStyle(fontSize: 15,fontFamily: "Avenger",fontWeight: FontWeight.bold)),
+          Text(title,style: boldblackText),
           Spacer(),
           Row(
             children: [
-              Text(subTitle,style: TextStyle(fontSize: 15,fontFamily: "Avenger",fontWeight: FontWeight.bold,color: Colors.black54),),
+              Text(subTitle,style: viewallText,),
             ],
           ),
         ],

@@ -20,6 +20,7 @@ class MyDrawerList extends StatelessWidget {
         ListTile(
           leading: Image.asset("assets/icons/ic_edit_profile.png"),
           title: Text("Edit Profile",style: headingDrawerText,),
+          trailing: Image.asset("assets/icons/ic_forward.png"),
           onTap: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfileEditScreen()));
             },
@@ -28,6 +29,7 @@ class MyDrawerList extends StatelessWidget {
         ListTile(
           leading: Image.asset("assets/icons/ic_password.png"),
           title: Text("Change Password",style: headingDrawerText,),
+          trailing: Image.asset("assets/icons/ic_forward.png",color: Colors.black,),
           onTap: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewPassword()));
           },

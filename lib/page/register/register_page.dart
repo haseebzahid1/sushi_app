@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/register/register_provider.dart';
@@ -25,14 +26,22 @@ class RegisterPage extends StatelessWidget {
 }
 
 
-class RegisterPageWidget extends StatelessWidget {
+class RegisterPageWidget extends StatefulWidget {
   RegisterPageWidget({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPageWidget> createState() => _RegisterPageWidgetState();
+}
+
+class _RegisterPageWidgetState extends State<RegisterPageWidget> {
   final _formKey = GlobalKey<FormState>();
+
   TextEditingController email = TextEditingController();
   TextEditingController name = TextEditingController();
-  TextEditingController dateOfBirth = TextEditingController();
+  TextEditingController _dateController = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final TapGestureRecognizer registerHere = TapGestureRecognizer()..onTap = (){
@@ -42,6 +51,8 @@ class RegisterPageWidget extends StatelessWidget {
     final TapGestureRecognizer termsOfUse = TapGestureRecognizer()..onTap = (){
       print("Terms of Use");
     };
+
+    DateTime date = DateTime(2022,12,24);
     final registerProvider = Provider.of<RegisterProvider>(context);
     final Size size  = MediaQuery.of(context).size;
     return Container(
@@ -64,12 +75,11 @@ class RegisterPageWidget extends StatelessWidget {
                   SizedBox(height: size.height * 0.14,),
                   Image.asset("assets/images/logo.png",width: size.width * 0.50,),
                   SizedBox(height: size.height* 0.04,),
-                  ProfileWidget(onClicked: () { },
-                    imagePath: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80',),
+                  ProfileWidget(onClicked: () { },imagePath: "assets/images/22654-6-man.png",),
                   SizedBox(height: size.height* 0.03,),
                   Form(
                     key: _formKey,
-                    autovalidateMode: AutovalidateMode.always,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
                       child: Column(
@@ -77,7 +87,7 @@ class RegisterPageWidget extends StatelessWidget {
                           InputFieldWidget(
                             controller: email,
                             labelText: "Email@gmail.com",
-                            textInputType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.emailAddress,
                             validate:registerProvider.validateUserEmail,
                             onSaved: registerProvider.onSaveUserEmail,
                             prefixIcon: const Icon(Icons.email,color: kTextGrayColor,),
@@ -94,7 +104,21 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            controller: dateOfBirth,
+                            keyboardType: TextInputType.none,
+                            onTab:() async {
+                              await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2015),
+                                lastDate: DateTime(2025),
+                              ).then((selectedDate) {
+                                if (selectedDate != null) {
+                                  _dateController.text =
+                                      DateFormat('yyyy-MM-dd').format(selectedDate);
+                                }
+                              });
+                            },
+                            controller: _dateController,
                             // hintText: "John",
                             labelText: "Date Of Birth",
                             validate:registerProvider.validateDateOfBirth,
@@ -104,7 +128,7 @@ class RegisterPageWidget extends StatelessWidget {
                           ),
                           const SizedBox(height: 17,),
                           InputFieldWidget(
-                            textInputType: TextInputType.number,
+                            keyboardType: TextInputType.number,
                             controller: phone,
                             // hintText: "John",
                             labelText: "Phone Number",
@@ -128,12 +152,15 @@ class RegisterPageWidget extends StatelessWidget {
                           FormButton(
                             onTap: (){
                               registerProvider.onSubmit();
-                              // if(_formKey.currentState!.validate()){
-                              //   _formKey.currentState!.save();
-                              //   Utils.showSnackBar(context, title: 'VALIDATION PASSED');
-                              // }else{
-                              //   Utils.showSnackBar(context, title: 'VALIDATION Error');
-                              // }
+                              if(_formKey.currentState!.validate()){
+                                _formKey.currentState!.save();
+                                print (_formKey.currentState!.validate());
+                                Utils.showSnackBar(context, title: 'VALIDATION PASSED');
+                              }else{
+                                Utils.showSnackBar(context, title: 'VALIDATION Error');
+                                print ("Validate error");
+                              }
+
                             },
                             textButton: "Sign Up",
                             width: size.width * 0.8,

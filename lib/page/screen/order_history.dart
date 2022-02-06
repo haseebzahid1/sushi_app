@@ -79,7 +79,7 @@ class OrderHistory extends StatelessWidget {
                               ),
                             ),
                             SizedBox(width: size.height * 0.02,),
-                            Text(orderProductItem.title,style: detailClubHeading.copyWith(fontSize: 17)),
+                            Text(orderProductItem.title,style: detailClubHeading.copyWith(fontSize: 14)),
                           ],
                         ),
                         const SizedBox(height: 2,),

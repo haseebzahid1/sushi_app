@@ -76,7 +76,7 @@ class OrderDetailPage extends StatelessWidget {
                                           TextSpan(text: '${orderDetailItem.title}\n',style: orderDetailHeading),
                                           TextSpan(text: 'Order #${orderDetailItem.orderNumber}\n', ),
                                           TextSpan(text: '${orderDetailItem.time}\n',),
-                                          TextSpan(text: '${orderDetailItem.totalPrice} DH',),
+                                          TextSpan(text: '${orderDetailItem.totalPrice} DH',style: TextStyle(color: Colors.blue)),
                                         ],
                                       ),
                                     ),
@@ -91,11 +91,11 @@ class OrderDetailPage extends StatelessWidget {
                             children: [
                               Text("Address",style: orderDetailSubHeading.copyWith(fontSize: 16,fontWeight: FontWeight.bold),),
                               SizedBox(height: size.height * 0.02,),
-                              Text("Cash",style: orderDetailSubHeading.copyWith(color: Colors.grey)),
+                              Text("Cash",style: orderDetailSubHeading.copyWith(fontSize: 16,color: Colors.grey)),
                               SizedBox(height: size.height * 0.01,),
                               Row(
                                 children:  [
-                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 14,color: Colors.black38),),
+                                  Text("Total",style: orderDetailSubHeading.copyWith(fontSize: 16,color: Colors.black),),
                                   Spacer(),
                                   Text("${orderDetailItem.totalPrice}",style: orderDetailSubHeading,),
                                 ],
@@ -125,8 +125,8 @@ class OrderDetailPage extends StatelessWidget {
                             width: size.width,
                             color: Colors.white,
                             bgColor: kCustomButton,
-                            size: 22,
-                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            size: 20,
+                            padding: const EdgeInsets.symmetric(vertical: 12.5),
                             onTap: (){},),
                           SizedBox(height: size.height * 0.04,),
                         ],

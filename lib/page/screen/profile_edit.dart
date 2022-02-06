@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/widget/custom_button.dart';
@@ -15,14 +17,15 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController fNameController = TextEditingController();
   TextEditingController lNameController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
+  TextEditingController _dateController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
   Widget build(BuildContext context) {
-    emailController.text = "jhondoe@gmail.com";
-    fNameController.text = "jhon";
-    lNameController.text = "jhon";
-    dateController.text = "13/05/1997";
-    phoneController.text = "+971 1541 1515";
+    emailController.text = "usmandoe@gmail.com";
+    fNameController.text = "Usman";
+    lNameController.text = "Usman";
+    _dateController.text = "13/05/1997";
+    phoneController.text = "+921 1541 1515";
 
     final Size size  = MediaQuery.of(context).size;
     return Scaffold(
@@ -59,11 +62,11 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                     width: 110,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.pink,
+                      color: Colors.white,
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(55),
-                        child: Image.network("https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=388&q=80",fit: BoxFit.cover,)),
+                        child: Image.asset("assets/images/22654-6-man.png",fit: BoxFit.cover,))
                   ),
                 ],
               ),
@@ -97,8 +100,21 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                      container(title: 'Date Of Birth'),
                     const SizedBox(height: 1,),
                     textFormField(
-                      controller: dateController,
-                      keyboardType:  TextInputType.number
+                      keyboardType: TextInputType.none,
+                      onTap: () async {
+                        await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2015),
+                          lastDate: DateTime(2025),
+                        ).then((selectedDate) {
+                          if (selectedDate != null) {
+                            _dateController.text =
+                                DateFormat('yyyy-MM-dd').format(selectedDate);
+                          }
+                        });
+                      },
+                      controller: _dateController,
                     ),
                     SizedBox(height: size.height * 0.02,),
                      container(title: 'Phone'),
@@ -123,6 +139,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
       ),
     );
   }
+
   Container container({required String title}){
     return   Container(
     child: Text(title,
@@ -133,8 +150,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     )),
   );
   }
-  TextFormField textFormField({TextEditingController? controller,TextInputType? keyboardType}){
+  Widget textFormField({TextEditingController? controller,TextInputType? keyboardType,Function()? onTap}){
     return TextFormField(
+      onTap: onTap,
       controller: controller,
       keyboardType: keyboardType,
       decoration:  InputDecoration(

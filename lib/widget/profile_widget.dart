@@ -16,7 +16,7 @@ class ProfileWidget extends StatelessWidget {
 
     return Stack(
       children: [
-        buildImage(),
+        container(),
         Positioned(
           bottom: 0,
           right: 4,
@@ -26,21 +26,17 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 
-  Widget buildImage() {
-    final image = NetworkImage(imagePath);
-    // final image = NetworkImage(imagePath);
 
-
-    return ClipOval(
-      child: Material(
-        color: Colors.transparent,
-        child: Ink.image(
-          image: image,
-          fit: BoxFit.cover,
-          width: 100,
-          height: 100,
-          child: InkWell(onTap: onClicked),
-        ),
+  Container container(){
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+      color: Colors.white,
+       image: DecorationImage(
+         image: AssetImage(imagePath,),fit: BoxFit.cover
+       ),
+       borderRadius: BorderRadius.circular(50),
       ),
     );
   }
@@ -51,7 +47,7 @@ class ProfileWidget extends StatelessWidget {
     child: buildCircle(
       color: color,
       all: 6,
-      child: Icon(
+      child: const Icon(
         Icons.add,
         color: Colors.white,
         size: 17,

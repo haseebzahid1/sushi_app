@@ -15,10 +15,7 @@ class _MapPageState extends State<MapPage> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(30.842150, 75.416817),
-    zoom: 15.151926040649414,
-  );
+  static const CameraPosition _kGooglePlex = CameraPosition(target: LatLng(31.411930 , 73.108047), zoom: 16.151926040649414,);
 
   static const CameraPosition _kLake =   CameraPosition(
     bearing: 192.8334901395799,
@@ -31,7 +28,35 @@ class _MapPageState extends State<MapPage> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }
+  Set<Marker> _markers = {};
 
+   late BitmapDescriptor mapMarker;
+  @override
+  void initState(){
+    super.initState();
+    setCustomMarker();
+  }
+
+ void  setCustomMarker() async {
+    mapMarker = await  BitmapDescriptor.fromAssetImage(
+    ImageConfiguration(), "assets/icons/marker.png",);
+}
+
+  void _onMapCreated(GoogleMapController controller){
+    setState(() {
+      _markers.add(
+          Marker(
+            markerId: const MarkerId('id-1'),
+            position: const LatLng(31.411930 , 73.108047),
+            icon: mapMarker,
+            infoWindow: const InfoWindow(
+              title: "title",
+              snippet: 'A title place'
+            ),
+          )
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +74,8 @@ class _MapPageState extends State<MapPage> {
       ),
       body:GoogleMap(
         mapType: MapType.terrain,
-        onMapCreated:(GoogleMapController controller){
-          _controller.complete(controller);
-        },
+        onMapCreated:_onMapCreated,
+        markers:_markers,
         initialCameraPosition:_kGooglePlex,
       ),
     );
