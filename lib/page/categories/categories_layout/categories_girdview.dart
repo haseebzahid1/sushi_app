@@ -67,7 +67,7 @@ class CategoriesGridView extends StatelessWidget {
                             children: [
                               Text("Wagyu Steak Roll",style: categoriesTitle,),
                               SizedBox(height: 2,),
-                              Text("249.00 DH",style: detailZeroText.copyWith(fontSize: 16,fontWeight: FontWeight.bold)),
+                              Text("249.00 DH",style: detailZeroText.copyWith(fontSize: 11,fontWeight: FontWeight.bold)),
                             ],
                           ),
                         ),

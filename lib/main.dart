@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:sushi/page/mainSplashScreen.dart';
-import 'package:sushi/page/splashScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sushi/page/Login/Login_page.dart';
+import 'package:sushi/page/onBoarding_screen.dart';
 
 
-void main() {
-  runApp(const MyApp());
+int? isviewed;
+void main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isviewed = prefs.getInt('onBoard');
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +47,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home:   SplashScreen(),
+      home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
     );
   }
 }

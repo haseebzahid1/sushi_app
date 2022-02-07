@@ -140,7 +140,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                                     SizedBox(height: size.height * 0.01,),
                                     Text(categoriesListItem.subTitle,style: categoriesListSubTitle,),
                                     SizedBox(height: size.height * 0.01,),
-                                    Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 16,fontWeight: FontWeight.bold)),
+                                    Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 11,fontWeight: FontWeight.bold)),
                                   ],
                                 ),
                               ),

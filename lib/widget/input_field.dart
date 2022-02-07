@@ -38,6 +38,7 @@ class InputFieldWidget extends StatefulWidget {
 
 class _InputFieldWidgetState extends State<InputFieldWidget> {
 
+
 final double size = 1.3;
   @override
   Widget build(BuildContext context) {
@@ -48,11 +49,12 @@ final double size = 1.3;
       keyboardType: widget.keyboardType ?? TextInputType.text,
       initialValue:widget.initialValue,
       decoration:  InputDecoration(
+        hoverColor: Colors.red,
         contentPadding: EdgeInsets.symmetric(vertical: 17),
         hintText:widget.hintText,
         labelText: widget.labelText,
         prefixIcon: widget.prefixIcon,
-        labelStyle: TextStyle(color:kTextGrayColor,fontSize: 15,fontWeight: FontWeight.w600),
+        labelStyle: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
         filled: true,
         fillColor: Colors.white,
         // enabledBorder: OutlineInputBorder(

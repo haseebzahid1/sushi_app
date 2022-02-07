@@ -21,9 +21,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   TextEditingController phoneController = TextEditingController();
 
   Widget build(BuildContext context) {
-    emailController.text = "usmandoe@gmail.com";
-    fNameController.text = "Usman";
-    lNameController.text = "Usman";
+    emailController.text = "Haseeb@gmail.com";
+    fNameController.text = "Haseeb";
+    lNameController.text = "Haseeb";
     _dateController.text = "13/05/1997";
     phoneController.text = "+921 1541 1515";
 
@@ -105,7 +105,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                         await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
-                          firstDate: DateTime(2015),
+                          firstDate: DateTime(1947),
                           lastDate: DateTime(2025),
                         ).then((selectedDate) {
                           if (selectedDate != null) {

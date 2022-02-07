@@ -64,7 +64,7 @@ class ForgotPasswordWidget extends StatelessWidget {
                             keyboardType: TextInputType.emailAddress,
                             validate:forgotPasswordProvider.validateUserEmail,
                             onSaved: forgotPasswordProvider.onSaveUserEmail,
-                            prefixIcon: const Icon(Icons.person,color: kTextGrayColor,),
+                            prefixIcon: const Icon(Icons.person),
                             isPassword: false,
                           ),
                           SizedBox(height: size.height* 0.03,),

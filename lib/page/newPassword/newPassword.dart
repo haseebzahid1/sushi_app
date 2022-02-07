@@ -63,8 +63,9 @@ class ForgotPasswordWidget extends StatelessWidget {
                           SizedBox(height: size.height* 0.04,),
                           InputFieldWidget(
                             controller: password,
+                            keyboardType: TextInputType.number,
                             labelText: "Password",
-                            prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
+                            prefixIcon: const Icon(Icons.https),
                             validate:newPasswordProvider.validatePassword,
                             onSaved: newPasswordProvider.onSavedPassword,
                             onChanged:newPasswordProvider.onChancedPassword ,
@@ -72,8 +73,9 @@ class ForgotPasswordWidget extends StatelessWidget {
                           SizedBox(height: size.height* 0.03,),
                           InputFieldWidget(
                             controller: confirmPassword,
+                            keyboardType: TextInputType.number,
                             labelText: "Confirm Password",
-                            prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
+                            prefixIcon: const Icon(Icons.https),
                             validate:newPasswordProvider.validateConfirmPassword,
                             onSaved: newPasswordProvider.onSaveConfirmPassword,
                             onChanged:newPasswordProvider.onChangedConfirmPassword,

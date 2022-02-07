@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/model/pageViewImage_model.dart';
 import 'package:sushi/style/theme.dart';
 import 'Login/Login_page.dart';
 
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   int currentIndex = 0;
-  final PageController _pageController = PageController();
+  late  PageController _pageController = PageController();
+
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  _storeOnboardInfo() async {
+    print("Shared pref called");
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+    print(prefs.getInt('onBoard'));
+  }
+
+
+
   @override
 
   Widget build(BuildContext context) {
@@ -52,10 +76,10 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Positioned(
             bottom: 20,
-            child: Container(
+            child:Container(
               width: size.width,
               height: size.height * 0.23,
-              color: Colors.white,
+              color:Colors.white,
               padding: EdgeInsets.only(left: 14,top: 30,right: 14,bottom: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +93,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     children: [
 
                       GestureDetector(
-                        onTap:(){
+                          onTap:() async {
+                          await _storeOnboardInfo();
                             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginInPage()));
                         },
                           child: const Text("Skip",style: kTextTitle)
@@ -96,9 +121,10 @@ class _SplashScreenState extends State<SplashScreen> {
                         }),
                       ),
                       InkWell(
-                          onTap:(){
+                          onTap:() async {
                             // if(currentIndex == pageViewImage.length-1){
                             if(currentIndex+1 == pageViewImage.length){
+                              await _storeOnboardInfo();
                               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginInPage()));
                             }
                               _pageController.nextPage(

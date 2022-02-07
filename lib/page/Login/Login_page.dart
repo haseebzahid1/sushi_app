@@ -63,8 +63,8 @@ class LoginInPageWidget extends StatelessWidget {
                 SizedBox(height: size.height* 0.06,),
                 Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.always,
-                  // autovalidateMode: AutovalidateMode.onUserInteraction,
+                  // autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
                     child: Column(
@@ -76,7 +76,7 @@ class LoginInPageWidget extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           validate:loginInProvider.validateUsername,
                           onSaved: loginInProvider.onSaveUsername,
-                          prefixIcon: const Icon(Icons.person,color: kTextGrayColor,),
+                          prefixIcon: const Icon(Icons.person),
                           isPassword: false,
                         ),
                         const SizedBox(height: 17,),
@@ -85,7 +85,7 @@ class LoginInPageWidget extends StatelessWidget {
                           controller: password,
                           // initialValue: "1234567",
                           labelText: "Password",
-                          prefixIcon: const Icon(Icons.https,color: kTextGrayColor,),
+                          prefixIcon: const Icon(Icons.https),
                           validate:loginInProvider.validatePassword,
                           onSaved: loginInProvider.onSavedPassword,
                           onChanged:loginInProvider.onChancedPassword ,

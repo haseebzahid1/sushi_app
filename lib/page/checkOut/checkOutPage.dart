@@ -37,9 +37,10 @@ class _CheckOutPageState extends State<CheckOutPage> {
        count++;
      });
    }
+   final formState = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final formState = GlobalKey<FormState>();
+
     return Scaffold(
      appBar:AppBar(
         iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
@@ -213,7 +214,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Address",
+            title,
             style: viewAllText,
           ),
           TextFormField(
