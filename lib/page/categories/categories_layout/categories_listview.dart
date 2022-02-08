@@ -7,13 +7,13 @@ import 'categories_girdview.dart';
 import 'categories_selected.dart';
 
 class CategoriesListView extends StatefulWidget {
-   CategoriesListView({Key? key,  }) : super(key: key);
+  CategoriesListView({Key? key,  }) : super(key: key);
 
   @override
-  State<CategoriesListView> createState() => _CategoriesListViewState();
+  State<CategoriesListView> createState() => _CategoriesGridViewState();
 }
 
-class _CategoriesListViewState extends State<CategoriesListView> {
+class _CategoriesGridViewState extends State<CategoriesListView> {
   bool currentBool = true;
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                                     SizedBox(height: size.height * 0.01,),
                                     Text(categoriesListItem.subTitle,style: categoriesListSubTitle,),
                                     SizedBox(height: size.height * 0.01,),
-                                    Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 11,fontWeight: FontWeight.bold)),
+                                    Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 17,fontWeight: FontWeight.bold)),
                                   ],
                                 ),
                               ),

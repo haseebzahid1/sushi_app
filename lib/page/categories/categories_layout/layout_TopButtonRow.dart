@@ -35,7 +35,7 @@ int isCurrentIndex= 0;
                     isCurrentIndex = index;
                   });
                   if(isCurrentIndex == 0){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesListView()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesGridView()));
                   }
                   else if(isCurrentIndex == 1){
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesGridView()));

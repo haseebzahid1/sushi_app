@@ -147,8 +147,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   ),
                 ),
                 textFormField(title:'Name',hintText: "Enter your Name",controller:name ),
-                textFormField(title:'Phone',hintText: "+92",controller:phoneNumber ),
-                textFormField(title:'Table Number',hintText: "Enter your Answer",controller:tableNumber ),
+                textFormField(title:'Phone',hintText: "+92",controller:phoneNumber ,keyboardType: TextInputType.number,),
+                textFormField(title:'Table Number',hintText: "Enter your Answer",controller:tableNumber,  keyboardType: TextInputType.number,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
@@ -207,7 +207,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       ),
     );
   }
-  Padding textFormField({required String title,required String? hintText,TextEditingController? controller}){
+  Padding textFormField({required String title,required String? hintText,TextEditingController? controller,TextInputType? keyboardType}){
     return  Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
@@ -218,6 +218,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
             style: viewAllText,
           ),
           TextFormField(
+            keyboardType: keyboardType,
             controller: controller,
             decoration: InputDecoration(
                 hintText: hintText,
