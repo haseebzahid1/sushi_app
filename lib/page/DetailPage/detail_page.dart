@@ -3,6 +3,7 @@ import 'package:sushi/model/ProductList.dart';
 import 'package:sushi/model/product_listView.dart';
 import 'package:sushi/page/screen/invite_friends_screen.dart';
 import 'package:sushi/page/screen/order_history.dart';
+import 'package:sushi/page/screen/sliver_screen.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/bottom_GridContainer_widget.dart';
@@ -263,6 +264,9 @@ class _DetailPageState extends State<DetailPage> {
                       child: Column(
                         children:  [
                           BottomGridContainer(
+                            onTab: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SliversDemo()));
+                            },
                             title: 'Thanks for visiting',
                             subTitle: "Leave  feedBack",
                             color:blueColor,

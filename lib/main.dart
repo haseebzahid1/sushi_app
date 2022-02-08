@@ -4,6 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/onBoarding_screen.dart';
+import 'package:sushi/page/screen/sliver_screen.dart';
 
 
 int? isviewed;
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
+      home: isviewed != 0 ? OnBoardingScreen() : SliversDemo(),
     );
   }
 }
