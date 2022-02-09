@@ -49,7 +49,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: isviewed != 0 ? OnBoardingScreen() : SliversDemo(),
-      home: SliversDemo(),
+      home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
+      // home: SliversDemo(),
     );
   }
 }

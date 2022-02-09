@@ -69,19 +69,21 @@ class _SliversDemoState extends State<SliversDemo> {
             backgroundColor: kCustomButton,
             expandedHeight: 230,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                  "https://images.unsplash.com/photo-1603785608232-44c43cdc0d70?ixlib=rb-1.2.1&"
-                      "ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDY4fEo5eXJQYUhYUlFZfHxlbnwwfHx8&auto=format&"
-                      "fit=crop&w=500&q=60",
-                  fit: BoxFit.cover),
+              background:Image.asset("assets/images/slvier_top-img.png",fit: BoxFit.cover,)
             ),
           ),
-
+          SliverToBoxAdapter(
+            child: Container(
+              height: 10,
+              width: size.width,
+              color: Colors.white,
+            ),
+          ),
           SliverFillRemaining(
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -122,6 +124,17 @@ class _SliversDemoState extends State<SliversDemo> {
                           ],
                         ),
                       ) ,
+                      // SizedBox(height: 30,),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                      //   child: Row(
+                      //     children: [
+                      //       RoundIconButton(icon: Icons.remove, onPress: (){},
+                      //         btnTextColor: Colors.white,btnColor: Colors.white,
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -179,7 +192,7 @@ class _SliversDemoState extends State<SliversDemo> {
       constraints: const BoxConstraints.tightFor(width: 20, height: 20),
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
             padding: EdgeInsets.zero,
             side:BorderSide(color:Colors.grey,width: 1.5),
             shape: RoundedRectangleBorder(
@@ -210,4 +223,42 @@ class _SliversDemoState extends State<SliversDemo> {
 
   }
 }
-
+//
+// class RoundIconButton extends StatelessWidget {
+//   final IconData icon;
+//   final Color? btnColor ;
+//   final Color? btnTextColor;
+//   void Function()? onPress;
+//   final String? text;
+//   RoundIconButton({Key? key,
+//     required this.icon,
+//     required this.onPress,
+//     this.btnColor,
+//     this.btnTextColor,
+//     this.text,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return RawMaterialButton(
+//       splashColor: Colors.black.withOpacity(0.1),
+//       constraints: BoxConstraints.tightFor(
+//         width: 56.0,
+//         height: 56.0,
+//       ),
+//       elevation: 0,
+//       // shape: CircleBorder(),
+//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+//       fillColor: btnColor??Color(0xFF4C4F5E),
+//       onPressed: onPress,
+//       child: Container(
+//           decoration: BoxDecoration(
+//             shape: BoxShape.circle,
+//             border: Border.all(color:Colors.grey,width: 1.5),
+//             color: Colors.white,
+//           ),
+//           padding: EdgeInsets.all(3),
+//           child: Icon(icon,color: Colors.grey,)
+//       ),
+//     );
+//   }}

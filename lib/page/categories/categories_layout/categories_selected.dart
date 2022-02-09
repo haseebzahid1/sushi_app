@@ -16,7 +16,7 @@ class CategoriesDetailView extends StatefulWidget {
 class _CategoriesDetailViewState extends State<CategoriesDetailView> {
   @override
   int count = 1;
-  double price = 249.00;
+  double price = 249.0000;
 
   void increment(){
     setState(() {
@@ -102,7 +102,7 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
                               onTap: (){
                                 print("total");
                               },
-                                child: Text("${count*price}",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
+                                child: Text("${(count*price).toStringAsFixed(1)}",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
                             ),
                           ],
                         ),
