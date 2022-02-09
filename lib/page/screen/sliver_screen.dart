@@ -12,7 +12,7 @@ class SliversDemo extends StatefulWidget {
 class _SliversDemoState extends State<SliversDemo> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   int count = 1;
-  double price = 2.20;
+  double price = 2.2000;
 
   void increment(){
     setState(() {
@@ -27,6 +27,7 @@ class _SliversDemoState extends State<SliversDemo> {
       count++;
     });
   }
+
 
   bool _customTileExpanded = false;
   final List<CheckBoxState>check_notification = [
@@ -58,7 +59,7 @@ class _SliversDemoState extends State<SliversDemo> {
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
-            floating: true,
+            // floating: true,
             leading: TextButton(
               child: Icon(Icons.close,color: Colors.white,),
               onPressed: (){
@@ -136,14 +137,14 @@ class _SliversDemoState extends State<SliversDemo> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              countContainer(icon: Icons.add,onTap: increment),
+                              countIconButton(icon: Icons.horizontal_rule,onTap: increment),
                               Text("${count}",style: TextStyle(fontSize: 17,color: Colors.blue,fontWeight: FontWeight.bold)),
-                              countContainer(icon: Icons.add,onTap: decrement),
+                              countIconButton(icon: Icons.add,onTap: decrement),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(width: 30,),
+                      SizedBox(width: 25,),
                       Expanded(
                         flex: 3,
                         child: Container(
@@ -156,7 +157,7 @@ class _SliversDemoState extends State<SliversDemo> {
                             children: [
                               Text("Add",style: TextStyle(fontSize: 17.5,color: Colors.white,fontWeight: FontWeight.w500,fontFamily:"Avenir"),),
                               Spacer(),
-                              Text("${count*price} BHd",style: TextStyle(fontSize: 17.5,color: Colors.white,fontWeight: FontWeight.w500,fontFamily:"Avenir")),
+                              Text("${(count*price).toStringAsFixed(2)} BHd",style: TextStyle(fontSize: 17.5,color: Colors.white,fontWeight: FontWeight.w500,fontFamily:"Avenir")),
                             ],
                           ),
                         ),
@@ -173,19 +174,20 @@ class _SliversDemoState extends State<SliversDemo> {
       ),
     );
   }
-  Widget countContainer({void Function()? onTap,required IconData icon}){
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        // padding: EdgeInsets.all(0.2),
-        width: 20,
-        height: 20,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey,width: 2),
-          shape: BoxShape.circle,
-          color: Colors.white,
+  Widget countIconButton({void Function()? onTap,required IconData icon}){
+    return ConstrainedBox(
+      constraints: const BoxConstraints.tightFor(width: 20, height: 20),
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.white,
+            padding: EdgeInsets.zero,
+            side:BorderSide(color:Colors.grey,width: 1.5),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(9),
+            )
         ),
-        child: Center(child: Icon(icon,size: 14,color: Colors.grey,)),
+        child:  Icon(icon,size: 14,color: Colors.grey,),
+        onPressed: onTap,
       ),
     );
   }
