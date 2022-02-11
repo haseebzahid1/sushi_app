@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sushi/page/DetailPage/detail_page.dart';
 import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/onBoarding_screen.dart';
+import 'package:sushi/page/screen/image_picker.dart';
 import 'package:sushi/page/screen/sliver_screen.dart';
 
 
@@ -49,8 +51,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: isviewed != 0 ? OnBoardingScreen() : SliversDemo(),
-      home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
+      // home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
       // home: SliversDemo(),
+      home: DetailPage(),
     );
   }
 }

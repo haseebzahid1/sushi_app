@@ -124,31 +124,21 @@ class _SliversDemoState extends State<SliversDemo> {
                           ],
                         ),
                       ) ,
-                      // SizedBox(height: 30,),
-                      // Padding(
-                      //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                      //   child: Row(
-                      //     children: [
-                      //       RoundIconButton(icon: Icons.remove, onPress: (){},
-                      //         btnTextColor: Colors.white,btnColor: Colors.white,
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
                 Positioned(
                   bottom: 20,
-                  left: 20,
+                  left: 5,
                   right: 20,
                   child: Row(
                     children: [
                       Expanded(
+                        flex: 3,
                         child: Container(
                           // color: Colors.green,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               countIconButton(icon: Icons.horizontal_rule,onTap: increment),
                               Text("${count}",style: TextStyle(fontSize: 17,color: Colors.blue,fontWeight: FontWeight.bold)),
@@ -157,9 +147,9 @@ class _SliversDemoState extends State<SliversDemo> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 25,),
+                      SizedBox(width: 4,),
                       Expanded(
-                        flex: 3,
+                        flex: 4,
                         child: Container(
                           padding: EdgeInsets.symmetric(horizontal: 15,vertical: 12),
                           decoration: BoxDecoration(
@@ -188,22 +178,30 @@ class _SliversDemoState extends State<SliversDemo> {
     );
   }
   Widget countIconButton({void Function()? onTap,required IconData icon}){
-    return ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(width: 20, height: 20),
-      child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-            padding: EdgeInsets.zero,
-            side:BorderSide(color:Colors.grey,width: 1.5),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(9),
-            )
+    return ElevatedButton(
+      onPressed: onTap,
+      child: Container(
+        padding: EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(width: 1.2,color: Colors.grey)
         ),
-        child:  Icon(icon,size: 14,color: Colors.grey,),
-        onPressed: onTap,
+        child: Icon(icon,color: Colors.grey,size: 14,),
+      ),
+      style: ButtonStyle(
+          elevation:MaterialStateProperty.all(0) ,
+          shape: MaterialStateProperty.all(CircleBorder()),
+          padding: MaterialStateProperty.all(EdgeInsets.all(13)),
+          backgroundColor: MaterialStateProperty.all(Colors.white), // <-- Button color
+          overlayColor: MaterialStateProperty.resolveWith((states) => Colors.black.withOpacity(0.1))
+// overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+//   if (states.contains(MaterialState.pressed)) return Colors.black.withOpacity(0.2); // <-- Splash color
+// }
+// ),
       ),
     );
   }
+
 
   Widget buildSingCheckbox(checkbox) {
     return CheckboxListTile(
@@ -223,42 +221,8 @@ class _SliversDemoState extends State<SliversDemo> {
 
   }
 }
-//
-// class RoundIconButton extends StatelessWidget {
-//   final IconData icon;
-//   final Color? btnColor ;
-//   final Color? btnTextColor;
-//   void Function()? onPress;
-//   final String? text;
-//   RoundIconButton({Key? key,
-//     required this.icon,
-//     required this.onPress,
-//     this.btnColor,
-//     this.btnTextColor,
-//     this.text,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return RawMaterialButton(
-//       splashColor: Colors.black.withOpacity(0.1),
-//       constraints: BoxConstraints.tightFor(
-//         width: 56.0,
-//         height: 56.0,
-//       ),
-//       elevation: 0,
-//       // shape: CircleBorder(),
-//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-//       fillColor: btnColor??Color(0xFF4C4F5E),
-//       onPressed: onPress,
-//       child: Container(
-//           decoration: BoxDecoration(
-//             shape: BoxShape.circle,
-//             border: Border.all(color:Colors.grey,width: 1.5),
-//             color: Colors.white,
-//           ),
-//           padding: EdgeInsets.all(3),
-//           child: Icon(icon,color: Colors.grey,)
-//       ),
-//     );
-//   }}
+
+
+
+
+
