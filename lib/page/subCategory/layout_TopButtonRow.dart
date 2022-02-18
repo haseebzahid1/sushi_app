@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sushi/model/topBottomRow_model.dart';
 import 'categories_girdview.dart';
-import 'categories_listview.dart';
+
 
 class LayoutTopButtonRow extends StatefulWidget {
   const LayoutTopButtonRow({Key? key}) : super(key: key);
@@ -52,20 +50,3 @@ int isCurrentIndex= 0;
   }
 }
 
-// Row(
-// children: [
-// GestureDetector(
-// onTap: (){
-// Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesListView()));
-// },
-// child: Icon(Icons.list)
-// ),
-// SizedBox(width: size.width * 0.01,),
-// GestureDetector(
-// onTap: (){
-// Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesGridView()));
-// },
-// child: Icon(Icons.filter_2)
-// ),
-// ],
-// ),

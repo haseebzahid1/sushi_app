@@ -116,13 +116,13 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "payment Method",
                         style: viewAllText,
                       ),
                       DropdownButton(
                           isExpanded: true,
-                          hint: Text(
+                          hint: const Text(
                             'Please Select Payment Method',
                             style: normalText,
                           ), // Not necessary for Option 1
@@ -139,14 +139,14 @@ class _CheckOutPageState extends State<CheckOutPage> {
                             });
                           }
                       ),
-                      Text(
+                      const Text(
                         "Prices are inclusive of 5% VAT",
                         style: normalText,
                       )
                     ],
                   ),
                 ),
-                textFormField(title:'Name',hintText: "Enter your Name",controller:name ),
+                textFormField(title:'Name',hintText: "Enter your Name",controller:name ,),
                 textFormField(title:'Phone',hintText: "+92",controller:phoneNumber ,keyboardType: TextInputType.number,),
                 textFormField(title:'Table Number',hintText: "Enter your Answer",controller:tableNumber,  keyboardType: TextInputType.number,),
                 Padding(
@@ -187,7 +187,11 @@ class _CheckOutPageState extends State<CheckOutPage> {
                     ],
                   ),
                 ),
-                textFormField(title:'Special Instructions',hintText: "Your Answer",controller:instruction ),
+                textFormField(
+                  validate: (value) {
+                    return null;
+                  },
+                    title:'Special Instructions',hintText: "Your Answer",controller:instruction ),
                 SizedBox(height: 10,),
                 Center(
                     child: CustomButton(
@@ -207,7 +211,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       ),
     );
   }
-  Padding textFormField({required String title,required String? hintText,TextEditingController? controller,TextInputType? keyboardType}){
+  Padding textFormField({String? Function(String?)? validate, required String title,required String? hintText,TextEditingController? controller,TextInputType? keyboardType}){
     return  Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
@@ -218,6 +222,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
             style: viewAllText,
           ),
           TextFormField(
+            validator: validate,
             keyboardType: keyboardType,
             controller: controller,
             decoration: InputDecoration(

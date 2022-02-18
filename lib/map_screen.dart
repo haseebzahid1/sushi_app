@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:sushi/page/categories/categories.dart';
+import 'package:sushi/page/categories/categoryScreen.dart';
 
 
 class MapPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _MapPageState extends State<MapPage> {
 
   Completer<GoogleMapController> _controller = Completer();
 
-  static const CameraPosition _kGooglePlex = CameraPosition(target: LatLng(31.411930 , 73.108047), zoom: 16.151926040649414,);
+  static const CameraPosition _kGooglePlex = CameraPosition(target: LatLng(31.411930 , 73.108047), zoom: 14.151926040649414,);
 
   static const CameraPosition _kLake =   CameraPosition(
     bearing: 192.8334901395799,
@@ -28,7 +28,7 @@ class _MapPageState extends State<MapPage> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
   }
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
 
    late BitmapDescriptor mapMarker;
   @override
@@ -53,7 +53,7 @@ class _MapPageState extends State<MapPage> {
               title: "title",
               snippet: 'A title place'
             ),
-          )
+          ),
       );
     });
   }
@@ -64,7 +64,7 @@ class _MapPageState extends State<MapPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           _goToTheFaisalabad();
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CategoriesScreen()));
         },
         child: const Icon(Icons.where_to_vote),
       ),

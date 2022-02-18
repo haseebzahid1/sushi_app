@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sushi/page/DetailPage/detail_page.dart';
 import 'package:sushi/page/Login/Login_page.dart';
+import 'package:sushi/page/categories/categoryScreen.dart';
 import 'package:sushi/page/onBoarding_screen.dart';
-import 'package:sushi/page/screen/image_picker.dart';
-import 'package:sushi/page/screen/sliver_screen.dart';
+import 'map_screen.dart';
 
-
+bool? isviewed2;
 int? isviewed;
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -17,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isviewed = prefs.getInt('onBoard');
+  // isviewed2 = prefs.getBool('onBoard');
   runApp(MyApp());
 }
 
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Sumo Sushi',
       theme: ThemeData(
@@ -50,10 +49,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      // home: isviewed != 0 ? OnBoardingScreen() : SliversDemo(),
-      // home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
-      // home: SliversDemo(),
-      home: DetailPage(),
+      home: MapPage(),
+      // home: isviewed != 0 ? OnBoardingScreen() : MapPage(),
+      // home: isviewed2 != false ? OnBoardingScreen() : LoginInPage(),
+      // home: SliversDemo(),/
+      // home: MapPage(),
     );
   }
 }
