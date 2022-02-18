@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi/map_screen.dart';
+import 'package:sushi/page/map/map.dart';
 import 'package:sushi/model/custom_contactModel.dart';
 import 'package:sushi/page/screen/track_order_screen.dart';
 import 'package:sushi/style/constant.dart';

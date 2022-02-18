@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/categories/categoryScreen.dart';
+import 'package:sushi/page/map/map.dart';
 import 'package:sushi/page/onBoarding_screen.dart';
-import 'map_screen.dart';
 
 bool? isviewed2;
 int? isviewed;
