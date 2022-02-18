@@ -1,13 +1,14 @@
+
 import 'package:flutter/material.dart';
-import 'package:sushi/model/categories_model.dart';
-import 'package:sushi/page/checkOut/checkOutPage.dart';
+import 'package:sushi/model/categoryItem.dart';
 import 'package:sushi/style/constant.dart';
-import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/custom_button.dart';
 
+import '../../style/theme.dart';
+
 class CategoriesDetailView extends StatefulWidget {
-  final Categories detailViewCategories;
-  const CategoriesDetailView({Key? key, required this.detailViewCategories,}) : super(key: key);
+  CategoryItem data;
+  CategoriesDetailView({Key? key,required this.data}) : super(key: key);
 
   @override
   State<CategoriesDetailView> createState() => _CategoriesDetailViewState();
@@ -21,7 +22,7 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
   void increment(){
     setState(() {
       if(count> 1){
-      count--;
+        count--;
       }
     });
   }
@@ -45,86 +46,86 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
               width: size.width,
               height: size.height * 0.7,
               // child: Image.asset("assets/icons/image.png",fit: BoxFit.cover,),
-              child: Image.asset(widget.detailViewCategories.img,fit: BoxFit.cover,),
+              child: Image.network(widget.data.image!,fit: BoxFit.cover,),
             ),
             Positioned(
               bottom: 0,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                width: size.width,
-                height: size.height * 0.40,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)
-                  ),
-                color: Colors.white,
-                ),
-                child: Stack(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                         Text(widget.detailViewCategories.title,style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
-                        SizedBox(height: size.height * 0.01,),
-                         Text(widget.detailViewCategories.subTitle,style:  categoriesDetailViewTitle),
-                        SizedBox(height: size.height * 0.01,),
-                        Row(
-                          children: [
-                            Container(
-                              width: size.width * 0.27,
-                              height: size.height * 0.04,
-                              padding: EdgeInsets.zero,
-                              decoration: BoxDecoration(
-                                color: Colors.lightBlue.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  countButton(
-                                      size: size,
-                                      text: '-',
-                                      fontSize: 24,onTab:increment
-                                      ),
-                                  Text("${count}",style: TextStyle(fontSize: 17,color: kCustomButton,fontWeight: FontWeight.bold)),
-                                  countButton(
-                                      size: size,
-                                      text: '+',
-                                      fontSize:19,
-                                      onTab:decrement
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(width: size.width * 0.02,),
-                            GestureDetector(
-                              onTap: (){
-                                print("total");
-                              },
-                                child: Text("${(count*price).toStringAsFixed(1)}",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
-                            ),
-                          ],
-                        ),
-                      ],
+                  padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                  width: size.width,
+                  height: size.height * 0.40,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)
                     ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 10,
-                      child: Column(
+                    color: Colors.white,
+                  ),
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GestureDetector(
-                              onTap: (){
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CheckOutPage()));
-                              },
-                              child: CustomButton(bgColor: kCustomButton, textButton: 'Order Now', width: size.width * 0.6, color: Colors.white,)
+                          Text(widget.data.title!,style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
+                          SizedBox(height: size.height * 0.01,),
+                          Text(widget.data.description!,style:  categoriesDetailViewTitle),
+                          SizedBox(height: size.height * 0.01,),
+                          Row(
+                            children: [
+                              Container(
+                                width: size.width * 0.27,
+                                height: size.height * 0.04,
+                                padding: EdgeInsets.zero,
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    countButton(
+                                        size: size,
+                                        text: '-',
+                                        fontSize: 24,onTab:increment
+                                    ),
+                                    Text("${count}",style: TextStyle(fontSize: 17,color: kCustomButton,fontWeight: FontWeight.bold)),
+                                    countButton(
+                                        size: size,
+                                        text: '+',
+                                        fontSize:19,
+                                        onTab:decrement
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: size.width * 0.02,),
+                              GestureDetector(
+                                  onTap: (){
+                                    print("total");
+                                  },
+                                  child: Text("${(count*price).toStringAsFixed(1)}",style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:kCustomButton),)
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                )
+                      Positioned(
+                        left: 0,
+                        right: 0,
+                        bottom: 10,
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                                onTap: (){
+                                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CheckOutPage()));
+                                },
+                                child: CustomButton(bgColor: kCustomButton, textButton: 'Order Now', width: size.width * 0.6, color: Colors.white,)
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
               ),
             )
           ],

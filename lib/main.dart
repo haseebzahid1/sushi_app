@@ -5,6 +5,7 @@ import 'package:sushi/page/Login/Login_page.dart';
 import 'package:sushi/page/categories/categoryScreen.dart';
 import 'package:sushi/page/map/map.dart';
 import 'package:sushi/page/onBoarding_screen.dart';
+import 'package:sushi/page/subCategory/categories_listview.dart';
 
 bool? isviewed2;
 int? isviewed;
@@ -49,8 +50,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: MapPage(),
-      // home: isviewed != 0 ? OnBoardingScreen() : MapPage(),
+      // home: CategoryScreen(),
+      home: isviewed != 0 ? OnBoardingScreen() : LoginInPage(),
       // home: isviewed2 != false ? OnBoardingScreen() : LoginInPage(),
       // home: SliversDemo(),/
       // home: MapPage(),

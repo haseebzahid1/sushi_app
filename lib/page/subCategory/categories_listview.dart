@@ -1,23 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sushi/model/categories_model.dart';
+import 'package:sushi/model/categoryItem.dart';
 import 'package:sushi/page/screen/drawer_header.dart';
+import 'package:sushi/page/subCategory/provider.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'categories_girdview.dart';
 import 'categories_selected.dart';
-
-class CategoriesListView extends StatefulWidget {
-  CategoriesListView({Key? key,  }) : super(key: key);
+class SubCategory extends StatelessWidget {
+  int? id;
+   SubCategory({Key? key, this.id}) : super(key: key);
 
   @override
-  State<CategoriesListView> createState() => _CategoriesGridViewState();
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ListProvider>(
+      create: (context) => ListProvider(),
+      child:SubCategoryWidget(id:id),
+    );
+  }
+}
+class SubCategoryWidget extends StatefulWidget {
+  int? id;
+  SubCategoryWidget({Key? key,  this.id}) : super(key: key);
+
+  @override
+  State<SubCategoryWidget> createState() => _CategoriesGridViewState();
 }
 
-class _CategoriesGridViewState extends State<CategoriesListView> {
+class _CategoriesGridViewState extends State<SubCategoryWidget> {
   bool currentBool = true;
+  void initState(){
+    final provider = Provider.of<ListProvider>(context,listen: false);
+    provider.fetchCategory(widget.id);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final provider = Provider.of<ListProvider>(context);
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black.withOpacity(0.9)),
@@ -29,7 +50,7 @@ class _CategoriesGridViewState extends State<CategoriesListView> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("33",style: categoriesCoinText),
+                Text("${provider.itemsLength?? ""}",style: categoriesCoinText),
                 SizedBox(width: size.width * 0.01,),
                 Container(
                   width: size.width * 0.06,
@@ -48,7 +69,7 @@ class _CategoriesGridViewState extends State<CategoriesListView> {
         // backgroundColor: Colors.transparent,
         child: MyDrawerList(),
       ),
-      body: Column(
+      body:provider.isServiceCalling? Column(
         children: [
           SizedBox(height: size.height * 0.02,),
           Padding(
@@ -104,57 +125,59 @@ class _CategoriesGridViewState extends State<CategoriesListView> {
             ),
           ),
           currentBool ?
-          Expanded(child: CategoriesGridView())
+          Expanded(child: CategoriesGridView(
+            data:provider.categoryList
+          ))
               : Expanded(child: ListView.builder(
-              itemCount: categories.length,
-              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-              itemBuilder: (context, index){
-                Categories categoriesListItem = categories[index];
-                return GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesDetailView(
-                        detailViewCategories:categoriesListItem
-                    )));
-                  },
-                  child: Container(
-                    width: size.width,
-                    margin: EdgeInsets.only(top: 10),
-                    // color: Colors.red,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              width: size.width * 0.34,
-                              height: size.height * 0.20,
-                              child: Image.asset(categoriesListItem.img,fit: BoxFit.cover,),
-                            ),
-                            SizedBox(width: size.width * 0.02,),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(categoriesListItem.title,style: categoriesTitle.copyWith(fontSize: 19)),
-                                    SizedBox(height: size.height * 0.01,),
-                                    Text(categoriesListItem.subTitle,style: categoriesListSubTitle,),
-                                    SizedBox(height: size.height * 0.01,),
-                                    Text("${categoriesListItem.total} DH",style: detailZeroText.copyWith(fontSize: 17,fontWeight: FontWeight.bold)),
-                                  ],
-                                ),
+            itemCount: provider.categoryList.length,
+            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+            itemBuilder: (context, index){
+              CategoryItem dataProduct = provider.categoryList[index];
+              return GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesDetailView(
+                      data:dataProduct
+                  )));
+                },
+                child: Container(
+                  width: size.width,
+                  margin: EdgeInsets.only(top: 10),
+                  // color: Colors.red,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: size.width * 0.34,
+                            height: size.height * 0.20,
+                            child: Image.network(dataProduct.image!,fit: BoxFit.cover,),
+                          ),
+                          SizedBox(width: size.width * 0.02,),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("${dataProduct.title}",style: categoriesTitle.copyWith(fontSize: 19)),
+                                  SizedBox(height: size.height * 0.01,),
+                                  Text(dataProduct.title!,style: categoriesListSubTitle,),
+                                  SizedBox(height: size.height * 0.01,),
+                                  Text("${dataProduct.price} DH",style: detailZeroText.copyWith(fontSize: 17,fontWeight: FontWeight.bold)),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                );
-              },),
+                ),
+              );
+            },)
           )
         ],
-      ),
+      ):Center(child: CircularProgressIndicator()),
     );
   }
 }

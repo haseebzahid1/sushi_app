@@ -14,18 +14,18 @@ import 'package:sushi/widget/detailRowView_widget.dart';
 import 'package:sushi/widget/gridContainer_widget.dart';
 import 'bottom_model_sheet.dart';
 
-class DetailPage extends StatelessWidget {
- const DetailPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-
-    return ChangeNotifierProvider<MenuItemProvider>(
-        create: (context)=>MenuItemProvider(),
-      child:DetailPageWidget(),
-    );
-  }
-}
+// class DetailPage extends StatelessWidget {
+//  const DetailPage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//
+//     return ChangeNotifierProvider<MenuItemProvider>(
+//         create: (context)=>MenuItemProvider(),
+//       child:DetailPageWidget(),
+//     );
+//   }
+// }
 
 
 class DetailPageWidget extends StatefulWidget {
@@ -39,7 +39,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
   @override
   Widget build(BuildContext context) {
     final Size size  = MediaQuery.of(context).size;
-    final menuProvider = Provider.of<MenuItemProvider>(context);
+    // final menuProvider = Provider.of<MenuItemProvider>(context);
 
     return Scaffold(
         appBar: AppBar(
@@ -103,7 +103,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                 color:success,
                                 image: "assets/icons/noodle.png",
                                 onTap: (){
-                                  menuProvider.fetchMenuType();
+                                  // menuProvider.fetchMenuType();
                                    showModalBottomSheet(
                                       backgroundColor: Colors.transparent,
                                       shape: const RoundedRectangleBorder(

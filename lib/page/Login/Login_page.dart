@@ -98,7 +98,7 @@ class LoginInPageWidget extends StatelessWidget {
                               _formKey.currentState!.save();
                               Utils.showSnackBar(context, title: 'VALIDATION PASSED');
                               print (_formKey.currentState!.validate());
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
+                              // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetailPage()));
                             }else{
                               Utils.showSnackBar(context, title: 'VALIDATION Error');
                               print ("Validate error");
