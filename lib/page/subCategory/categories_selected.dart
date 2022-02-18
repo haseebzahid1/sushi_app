@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:sushi/model/categoryItem.dart';
+import 'package:sushi/page/checkOut/checkOutPage.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/widget/custom_button.dart';
-
 import '../../style/theme.dart';
 
 class CategoriesDetailView extends StatefulWidget {
@@ -117,7 +116,7 @@ class _CategoriesDetailViewState extends State<CategoriesDetailView> {
                           children: [
                             GestureDetector(
                                 onTap: (){
-                                  // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CheckOutPage()));
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CheckOutPage()));
                                 },
                                 child: CustomButton(bgColor: kCustomButton, textButton: 'Order Now', width: size.width * 0.6, color: Colors.white,)
                             ),

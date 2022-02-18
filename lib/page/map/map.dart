@@ -84,7 +84,7 @@ class _MapPageState extends State<MapPageWidget> {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           // _goToTheFaisalabad();
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoriesScreen()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CategoryScreen()));
         },
         child: const Icon(Icons.where_to_vote),
       ),

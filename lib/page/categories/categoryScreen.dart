@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sushi/model/categories_model.dart';
 import 'package:sushi/model/category.dart';
 import 'package:sushi/page/DetailPage/provider/menuItemProvider.dart';
 import 'package:sushi/page/categories/provider.dart';
@@ -88,7 +87,6 @@ class _CategoryScreenWidgetState extends State<CategoryScreenWidget> {
                 return GestureDetector(
 
                   onTap: (){
-                    print("aoi one");
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SubCategory(
                       id:categoriesItem.id
                     )));

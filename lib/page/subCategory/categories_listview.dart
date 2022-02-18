@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sushi/model/categories_model.dart';
 import 'package:sushi/model/categoryItem.dart';
 import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/page/subCategory/provider.dart';
