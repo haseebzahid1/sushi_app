@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sushi/page/DetailPage/bottom_sheet/bottomSheetProvider.dart';
 import 'package:sushi/page/map/map.dart';
 import 'package:sushi/model/custom_contactModel.dart';
 import 'package:sushi/page/screen/track_order_screen.dart';
@@ -6,13 +7,15 @@ import 'package:sushi/style/constant.dart';
 
 
 class DetailBottomSheet extends StatefulWidget {
- const DetailBottomSheet({Key? key}) : super(key: key);
-
+  List<ContactModel> orderItem;
+  BottomSheetProvider provider;
+  DetailBottomSheet({Key? key,required this.orderItem, required this.provider}) : super(key: key);
   @override
   _DetailBottomSheetState createState() => _DetailBottomSheetState();
 }
 class _DetailBottomSheetState extends State<DetailBottomSheet> {
  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -36,11 +39,11 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
               ),
               const SizedBox(height: 10,),
               Column(
-                  children: List.generate(contacts.length, (index){
-                    ContactModel  contactItem =  contacts[index];
+                  children: List.generate(orderItem.length, (index){
+                    ContactModel  contactItem =  orderItem[index];
                     return   ListTile(
                       leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.09 ,),
-                      title: Text(contactItem.name,style: modelHeading),
+                      title: Text(contactItem.title,style: modelHeading),
                       subtitle: Text(contactItem.title,style: modelSubHeading,),
                       trailing: currentIndex == index
                           ? Container(
@@ -79,36 +82,3 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
   }
 
 }
-
-// Expanded(
-// child: ListView.builder(
-// itemCount: contacts.length,
-// itemBuilder: (context, index){
-// ContactModel  contactItem =  contacts[index];
-// return ListTile(
-// leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.11 ,),
-// title: Text(contactItem.name,style: modelHeading),
-// subtitle: Text(contactItem.title,style: modelSubHeading,),
-// trailing: currentIndex ==index
-// ? Container(
-// width: 20, height: 20,
-// decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.lightBlue
-// ),
-// child: const Center(
-// child: Icon(Icons.done,color: Colors.white,size: 15,),
-// ),
-// ) : Container(
-// width: 20, height: 20,
-// decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.grey
-// ),
-// ),
-// onTap: (){
-// setState(() {
-// currentIndex = index;
-// });
-// // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MapPage()));
-//
-// },
-// );
-// },)
-// ),

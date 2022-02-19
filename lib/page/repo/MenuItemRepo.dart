@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:sushi/model/bootSheet.dart';
 import 'package:sushi/model/category.dart';
 import 'package:sushi/model/categoryItem.dart';
 import 'package:sushi/model/mapLocation.dart';
@@ -79,4 +80,27 @@ class CategoriesRepo{
     }
     return mapList;
   }
+
+  // =======================================================================
+  //
+  // =======================================================================
+  static Future<List<BottomSheet>> fetchOrderData() async{
+   var client = http.Client();
+   List<BottomSheet> orderList = [];
+   String baseUrl = "phplaravel-438875-2225426.cloudwaysapps.com";
+   var url = Uri.https(baseUrl, '/api/v1/menu-types');
+   var response = await client.get(url);
+   if(response == 200){
+     var resData = jsonDecode(response.body);
+      orderList = bottomSheetFromJson(resData);
+     print(orderList);
+     return orderList;
+     // for(int i=0;i<resData["data"][i];i++){
+     //   BottomSheet orderData = BottomSheet.fromJson(resData["data"][i]);
+     // }
+   }
+   return orderList;
+  }
+
+
 }

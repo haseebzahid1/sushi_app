@@ -1,32 +1,33 @@
 class ContactModel{
-
-  String name, title, img;
+  int? id;
+  String title, description, img;
   bool isSelected;
 
   ContactModel({
-    required this.name,
+    this.id,
     required this.title,
+    required this.description,
     required this.isSelected,
     required this.img,
   });
 }
 
-List<ContactModel> contacts = [
+List<ContactModel> orderItem = [
   ContactModel(
-      name: "Pick Up",
-      title:"Well prepare and pack your",
+      title: "Pick Up",
+      description:"Well prepare and pack your",
       isSelected: false,
       img: "assets/icons/shopping-bag.png"
   ),
   ContactModel(
-      name: "Dine in",
-      title:"Well prepare and pack your",
+      title: "Dine in",
+      description:"Well prepare and pack your",
       isSelected: false,
       img: "assets/icons/shoe-shop.png"
   ),
   ContactModel(
-      name: "Delivery",
-      title:"Well prepare and pack your",
+      title: "Delivery",
+      description:"Well prepare and pack your",
       isSelected: false,
       img: "assets/icons/delivery-man.png"
   ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sushi/model/category.dart';
-import 'package:sushi/page/DetailPage/provider/menuItemProvider.dart';
+import 'package:sushi/page/DetailPage/bottom_sheet/bottomSheetProvider.dart';
 import 'package:sushi/page/categories/provider.dart';
 import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/style/constant.dart';

@@ -1,45 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sushi/model/ProductList.dart';
+import 'package:sushi/model/custom_contactModel.dart';
 import 'package:sushi/model/product_listView.dart';
-import 'package:sushi/page/DetailPage/provider/menuItemProvider.dart';
+import 'package:sushi/page/DetailPage/bottom_sheet/bottomSheetProvider.dart';
+import 'package:sushi/page/map/map.dart';
 import 'package:sushi/page/screen/drawer_header.dart';
 import 'package:sushi/page/screen/invite_friends_screen.dart';
 import 'package:sushi/page/screen/order_history.dart';
 import 'package:sushi/page/screen/sliver_screen.dart';
+import 'package:sushi/page/screen/track_order_screen.dart';
 import 'package:sushi/style/constant.dart';
 import 'package:sushi/style/theme.dart';
 import 'package:sushi/widget/bottom_GridContainer_widget.dart';
 import 'package:sushi/widget/detailRowView_widget.dart';
 import 'package:sushi/widget/gridContainer_widget.dart';
-import 'bottom_model_sheet.dart';
+import 'bottom_sheet/bottom_model_sheet.dart';
 
-// class DetailPage extends StatelessWidget {
-//  const DetailPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     return ChangeNotifierProvider<MenuItemProvider>(
-//         create: (context)=>MenuItemProvider(),
-//       child:DetailPageWidget(),
-//     );
-//   }
-// }
+class DetailPage extends StatelessWidget {
+ const DetailPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
+    return ChangeNotifierProvider<BottomSheetProvider>(
+        create: (context)=>BottomSheetProvider(),
+      child:DetailPageWidget(),
+    );
+  }
+}
 
 
 class DetailPageWidget extends StatefulWidget {
-  const DetailPageWidget({Key? key}) : super(key: key);
+   DetailPageWidget({Key? key}) : super(key: key);
 
   @override
   _DetailPageWidgetState createState() => _DetailPageWidgetState();
 }
-
 class _DetailPageWidgetState extends State<DetailPageWidget> {
+  initState(){
+    final provider = Provider.of<BottomSheetProvider>(context, listen: false);
+    provider.fetchOrderType();
+    super.initState();
+  }
+  int? currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     final Size size  = MediaQuery.of(context).size;
-    // final menuProvider = Provider.of<MenuItemProvider>(context);
+    final provider = Provider.of<BottomSheetProvider>(context);
+    print(provider.isServiceCalling);
 
     return Scaffold(
         appBar: AppBar(
@@ -97,21 +106,27 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       Expanded(
                         child: Column(
                           children: [
-                            GridContainer(
+                            provider.isServiceCalling?Text("")
+                            :GridContainer(
                                 title: 'Ordere',
                                 subTitle: 'and get Kanji Coins',
                                 color:success,
                                 image: "assets/icons/noodle.png",
                                 onTap: (){
-                                  // menuProvider.fetchMenuType();
-                                   showModalBottomSheet(
+                                  // provider.fetchOrderType();
+                                  print(provider.isServiceCalling);
+                                  showModalBottomSheet(
                                       backgroundColor: Colors.transparent,
                                       shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.vertical(top: Radius.circular(20))
                                       ),
                                       isScrollControlled: true,
                                       context: context, builder: (BuildContext context){
-                                    return  DetailBottomSheet();
+                                    return  DetailBottomSheet(
+                                        orderItem: provider.orderList,
+                                        provider:provider
+                                    );
+
                                   }
                                   );
                                 }
@@ -322,4 +337,8 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
         )
     );
   }
+
+
+
+
 }
