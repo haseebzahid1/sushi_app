@@ -48,7 +48,6 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
   Widget build(BuildContext context) {
     final Size size  = MediaQuery.of(context).size;
     final provider = Provider.of<BottomSheetProvider>(context);
-    print(provider.isServiceCalling);
 
     return Scaffold(
         appBar: AppBar(
@@ -106,13 +105,12 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       Expanded(
                         child: Column(
                           children: [
-                            provider.isServiceCalling?Text("")
-                            :GridContainer(
+                            GridContainer(
                                 title: 'Ordere',
                                 subTitle: 'and get Kanji Coins',
                                 color:success,
                                 image: "assets/icons/noodle.png",
-                                onTap: (){
+                                onTap:provider.isServiceCalling?(){
                                   // provider.fetchOrderType();
                                   print(provider.isServiceCalling);
                                   showModalBottomSheet(
@@ -124,12 +122,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                       context: context, builder: (BuildContext context){
                                     return  DetailBottomSheet(
                                         orderItem: provider.orderList,
-                                        provider:provider
                                     );
 
                                   }
                                   );
-                                }
+                                }: null,
                             ),
 
                           ],

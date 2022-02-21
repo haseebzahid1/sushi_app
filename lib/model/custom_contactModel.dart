@@ -12,24 +12,23 @@ class ContactModel{
   });
 }
 
-List<ContactModel> orderItem = [
-  ContactModel(
-      title: "Pick Up",
-      description:"Well prepare and pack your",
-      isSelected: false,
-      img: "assets/icons/shopping-bag.png"
-  ),
-  ContactModel(
-      title: "Dine in",
-      description:"Well prepare and pack your",
-      isSelected: false,
-      img: "assets/icons/shoe-shop.png"
-  ),
-  ContactModel(
-      title: "Delivery",
-      description:"Well prepare and pack your",
-      isSelected: false,
-      img: "assets/icons/delivery-man.png"
-  ),
-
-];
+// List<ContactModel> orderItem = [
+//   ContactModel(
+//       title: "Pick Up",
+//       description:"Well prepare and pack your",
+//       isSelected: false,
+//       img: "assets/icons/shopping-bag.png"
+//   ),
+//   ContactModel(
+//       title: "Dine in",
+//       description:"Well prepare and pack your",
+//       isSelected: false,
+//       img: "assets/icons/shoe-shop.png"
+//   ),
+//   ContactModel(
+//       title: "Delivery",
+//       description:"Well prepare and pack your",
+//       isSelected: false,
+//       img: "assets/icons/delivery-man.png"
+//   ),
+// ];

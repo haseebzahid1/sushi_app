@@ -90,10 +90,12 @@ class CategoriesRepo{
    String baseUrl = "phplaravel-438875-2225426.cloudwaysapps.com";
    var url = Uri.https(baseUrl, '/api/v1/menu-types');
    var response = await client.get(url);
-   if(response == 200){
+   if(response.statusCode == 200){
      var resData = jsonDecode(response.body);
-      orderList = bottomSheetFromJson(resData);
-     print(orderList);
+     for(int i=0;i<resData["data"].length;i++) {
+       BottomSheet orderData = BottomSheet.fromJson(resData["data"][i]);
+       orderList.add(orderData);
+     }
      return orderList;
      // for(int i=0;i<resData["data"][i];i++){
      //   BottomSheet orderData = BottomSheet.fromJson(resData["data"][i]);

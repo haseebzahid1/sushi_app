@@ -8,8 +8,7 @@ import 'package:sushi/style/constant.dart';
 
 class DetailBottomSheet extends StatefulWidget {
   List<ContactModel> orderItem;
-  BottomSheetProvider provider;
-  DetailBottomSheet({Key? key,required this.orderItem, required this.provider}) : super(key: key);
+  DetailBottomSheet({Key? key,required this.orderItem,}) : super(key: key);
   @override
   _DetailBottomSheetState createState() => _DetailBottomSheetState();
 }
@@ -39,12 +38,12 @@ class _DetailBottomSheetState extends State<DetailBottomSheet> {
               ),
               const SizedBox(height: 10,),
               Column(
-                  children: List.generate(orderItem.length, (index){
-                    ContactModel  contactItem =  orderItem[index];
+                  children: List.generate(widget.orderItem.length, (index){
+                    ContactModel  contactItem =  widget.orderItem[index];
                     return   ListTile(
                       leading: Image.asset(contactItem.img,width: MediaQuery.of(context).size.width *0.09 ,),
                       title: Text(contactItem.title,style: modelHeading),
-                      subtitle: Text(contactItem.title,style: modelSubHeading,),
+                      subtitle: Text(contactItem.description,style: modelSubHeading,),
                       trailing: currentIndex == index
                           ? Container(
                         width: 20, height: 20,

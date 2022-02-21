@@ -8,9 +8,9 @@ class BottomSheetProvider extends ChangeNotifier {
   bool isServiceCalling =false;
 
   void fetchOrderType() async {
-    print("api is calling");
     isServiceCalling =false;
-    String _img = "assets/icons/shopping-bag.png";
+    print("isServiceCalling $isServiceCalling ha");
+    List<String> _img = ["assets/icons/delivery-man.png", "assets/icons/shopping-bag.png", "assets/icons/shoe-shop.png"];
     String _desc = "Well prepare and pack your";
     bool _selected = false;
 
@@ -24,14 +24,14 @@ class BottomSheetProvider extends ChangeNotifier {
                   title: data[i].title ?? "",
                   description: _desc,
                   isSelected: _selected,
-                  img: _img
+                  img: _img[i],
               )
           );
         }
 
         isServiceCalling = true;
         notifyListeners();
-        print("$isServiceCalling isfvgbgbgb");
+        print("isServiceCalling $isServiceCalling ha");
       }
       // print("Response is $data  null");
       // for(var itemm in data){
